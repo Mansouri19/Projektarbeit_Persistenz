@@ -7,3 +7,5 @@
 - Konsolenanwendung/GUI-Anwendung/Browser-Anwendung
 - JUnit Anwendung
 
+ siehe --> https://www.vogella.com/tutorials/JavaPersistenceAPI/article.html#jpaintro
+
