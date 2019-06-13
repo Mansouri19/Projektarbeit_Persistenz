@@ -19,7 +19,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 
-	private Abteilung abteilung;
+	private Abteilung family;
 
 	private String nonsenseField = "";
 
@@ -52,11 +52,11 @@ public class Person {
 
 	@ManyToOne
 	public Abteilung getFamily() {
-		return abteilung;
+		return family;
 	}
 
-	public void setFamily(Abteilung abteilung) {
-		this.abteilung = abteilung;
+	public void setFamily(Abteilung family) {
+		this.family = family;
 	}
 
 	@Transient
