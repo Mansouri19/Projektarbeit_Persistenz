@@ -19,7 +19,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 
-	private Abteilung family;
+	private Family family;
 
 	private String nonsenseField = "";
 
@@ -51,11 +51,11 @@ public class Person {
 	}
 
 	@ManyToOne
-	public Abteilung getFamily() {
+	public Family getFamily() {
 		return family;
 	}
 
-	public void setFamily(Abteilung family) {
+	public void setFamily(Family family) {
 		this.family = family;
 	}
 

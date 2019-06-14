@@ -9,14 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 @Entity
-public class Abteilung {
+public class Family {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	private String description;
 
-	@OneToMany(mappedBy = "abteilung")
+	@OneToMany(mappedBy = "family")
 	private final List<Person> members = new ArrayList<Person>();
 
 	public int getId() {
