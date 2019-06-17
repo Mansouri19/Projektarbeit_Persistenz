@@ -17,11 +17,11 @@ public class BooksManager {
 
 		begin();
 
-//		create();
+		create();
 //		update();
 //		find();
 //		query();
-		remove();
+//		remove();
 
 		end();
 	}
@@ -34,9 +34,9 @@ public class BooksManager {
 
 	private static void create() {
 		Book newBook = new Book();
-		newBook.setTitle("Thinking in Java");
-		newBook.setAuthor("Bruce Eckel");
-		newBook.setPrice(45);
+		newBook.setTitle("Java 7 Das Übungsbuch");
+		newBook.setAuthor("Elisabeth Jung ");
+		newBook.setPrice(40);
 		entityManager.persist(newBook);
 	}
 
