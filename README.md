@@ -122,4 +122,10 @@
      - Close die EntityManager
      - Close die EntityManagerFactory
 
+#### VIII. Ziel (To Do)
+##### • KundenVerwaltung_JPA_MySQL bearbeiten
+      - siehe KundenVerwaltung_JPA_MySQL[Projectarbeit_Persistenz master]
+      - Testprogramm Schritte folgen 
+
+
 
