@@ -1,5 +1,6 @@
 # Projektarbeit_Persistenz
 ## Verwendete Softwareprogramme und Technologien 
+##### •  Git Bash - GitHub
 ##### •  Java SE 8
 ##### •  Eclipse IDE: 2018-12
 ##### •  MySQL: 8.0.16 (MySQL Community Server - GLP)
@@ -99,17 +100,26 @@
 	</persistence-unit>
 </persistence>
 
-#### VI.	Verwendung der EntityManager and EntityManagerFactory
+#### VI. Verwendung der EntityManager and EntityManagerFactory
 ##### • EntityManager
     - Ein Persistenzkontext ist eine Menge von Entities (Objekt der Modellklassen.
     - EntityManager wird verwendet, um mit dem Persistenzkontext zu interagieren (Datenbank).
-    - Verwaltung der Entitätsinstanzen und deren Lebenszyklus.
+    - Verwaltung der Entitätsinstanzen und deren Lebenszyklus (begin und end).
     - Verwendung der CRUD Methoden (create, update, remove, find, Query Entities). 
     
 ##### • EntityManagerFactory
      - Die EntityManagerFactory wird einer Persistenzeinheit zugeordnet.
      - Erzeugt eine EntityManager.
 
-#### VII.	Testprogramm
+#### VII. Testprogramm
+
+##### • Schritte:
+     - EntityManagerFactory erzeugen
+     - EntityManager erzeugen 
+     - Transaction beginnen 
+     - Persist ein Objekt (Bsp. Book)
+     - Commit die Transaction
+     - Close die EntityManager
+     - Close die EntityManagerFactory
 
 
