@@ -77,7 +77,6 @@ public class KundenTest {
 		System.gc();
 	}
 
-	/***********************************************************************************/
 	private static void showListReferences(List<Kunde> kunden) {
 		for (Kunde k : kunden) {
 			System.out.println(CommonLib.objectRef(k));
@@ -85,6 +84,5 @@ public class KundenTest {
 
 		System.out.println();
 	}
-	/***********************************************************************************/
 
 }

@@ -9,14 +9,9 @@ import development.project.dao.model.Kunde;
 public final class KundenCache extends TreeMap<Integer, Kunde> {
 	private static KundenCache instance;
 
-	/***********************************************************************************/
 	private KundenCache() {
 	}
 
-	/***********************************************************************************/
-	/**
-	 * @return
-	 */
 	public static KundenCache getInstance() {
 		if (instance == null) {
 			instance = new KundenCache();
@@ -25,7 +20,6 @@ public final class KundenCache extends TreeMap<Integer, Kunde> {
 		return instance;
 	}
 
-	/***********************************************************************************/
 	public static void showCacheEntries() {
 		if (instance != null) {
 			for (Map.Entry<Integer, Kunde> entry : instance.entrySet()) {

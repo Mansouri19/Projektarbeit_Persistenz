@@ -10,14 +10,9 @@ public final class KundenDAO {
 
 	private static KundenDAO instance;
 
-	/***********************************************************************************/
 	private KundenDAO() {
 	}
 
-	/***********************************************************************************/
-	/**
-	 * @return
-	 */
 	protected static KundenDAO getInstance() {
 		if (instance == null)
 			instance = new KundenDAO();
@@ -25,19 +20,10 @@ public final class KundenDAO {
 		return instance;
 	}
 
-	/***********************************************************************************/
-	/**
-	 * @param id
-	 * @return
-	 */
 	private Kunde retrieveKundeByDTOId(int id) {
 		return KundenCache.getInstance().get(id);
 	}
 
-	/***********************************************************************************/
-	/**
-	 * @return
-	 */
 	@SuppressWarnings("serial")
 	public List<Kunde> simulateIncomingKundenData() {
 		return new ArrayList<Kunde>() {
@@ -50,10 +36,6 @@ public final class KundenDAO {
 		};
 	}
 
-	/***********************************************************************************/
-	/**
-	 * @param kunden
-	 */
 	public void storeList(List<Kunde> kunden) {
 		for (Kunde k : kunden) {
 			boolean isTouched = k.isTouched();
