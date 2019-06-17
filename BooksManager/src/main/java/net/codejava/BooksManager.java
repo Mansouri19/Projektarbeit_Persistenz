@@ -17,11 +17,11 @@ public class BooksManager {
 
 		begin();
 
-		create();
+//		create();
 //		update();
 //		find();
 //		query();
-//		remove();
+		remove();
 
 		end();
 	}
@@ -70,7 +70,7 @@ public class BooksManager {
 	}
 	
 	private static void remove() {
-		Integer primaryKey = 3;
+		Integer primaryKey = 7;
 		Book reference = entityManager.getReference(Book.class, primaryKey);
 		entityManager.remove(reference);
 	}
