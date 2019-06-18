@@ -14,8 +14,8 @@ public class KundenManagerDemo {
 		entityManager.getTransaction().begin();
 
 		KundeDemo newKundeDemo = new KundeDemo();
-		newKundeDemo.setNachname("Smith");
-		newKundeDemo.setVorname("Adam");
+		newKundeDemo.setKundeNachname("Smith");
+		newKundeDemo.setKundeVorname("Adam");
 		entityManager.persist(newKundeDemo);
 
 		entityManager.getTransaction().commit();
