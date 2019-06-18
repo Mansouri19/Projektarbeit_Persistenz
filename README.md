@@ -27,7 +27,6 @@
 
 #### III. Java Maven Project in Eclipse einrichten 
 ##### •	Maven Projekt erstellen: In Eclipse File > new > Maven Project
-       - Tips: nach Import projects vom GitHub Respository -> Maus Rechtsklick > Maven > Update Project
 	    Projekt Name: KundenVerwaltung_Maven_JPA_MySQL (Beispiel)
 	    Group Id: org.development
 	    Artifact Id: KundenVerwaltung_Maven_JPA_MySQL
@@ -37,6 +36,8 @@
 		         <maven.compiler.source>1.8</maven.compiler.source>
 		         <maven.compiler.target>1.8</maven.compiler.target>
 	         </properties>
+	         
+       -> Tips: nach Import projects vom GitHub Respository -> Maus Rechtsklick > Maven > Update Project
 ##### •	Dependencies konfigurieren für :
 	 - Hibernate (ORM), Artifact Id: hibernate-core
 	   MySQL Connector Java (JDBC Driver), Artifact Id: mysql-connector-java
