@@ -71,7 +71,7 @@ public class BooksManager {
 	}
 	
 	private static void remove() {
-		Integer primaryKey = 7;
+		Integer primaryKey = 8;
 		Book reference = entityManager.getReference(Book.class, primaryKey);
 		entityManager.remove(reference);
 	}

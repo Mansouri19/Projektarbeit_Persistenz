@@ -1,9 +1,12 @@
 package net.codejava;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +20,24 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class BookTest {
-
+	
+	@Test
+	void testBookUpdate() {
+		Book existBook = new Book();
+		existBook.setBookId(3);
+		Integer actual = existBook.getBookId();
+		
+		existBook.setTitle("Java SE 8 Programmer II");
+		existBook.setAuthor("Bruce Eckel");
+		existBook.setPrice(50);
+			
+		Integer expected = 3;
+		assertEquals(expected, actual);
+	}
+	
+	
+/*  Beispiele
+ 
 	@Test
 	@DisplayName("OK!")
 	@Disabled
@@ -62,5 +82,5 @@ class BookTest {
 	void wordLength(String word, int length) {
 		assertEquals(length, word.length());
 	}
-
+*/
 }
