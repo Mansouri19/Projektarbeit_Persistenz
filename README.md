@@ -67,7 +67,7 @@
 ##### •	Verwendung der JPA Annotations
 	   @Entity
 	   @Id
-	   GeneratedValue
+	   @GeneratedValue
 	   @Table
 	   @Column
 
