@@ -18,10 +18,10 @@ public class BooksManager {
 		begin();
 
 //		create();
-//		update();
+		update();
 //		find();
 //		query();
-		remove();
+//		remove();
 
 		end();
 	}
