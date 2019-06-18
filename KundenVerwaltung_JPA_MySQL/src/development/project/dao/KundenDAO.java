@@ -6,6 +6,8 @@ import java.util.List;
 import development.project.dao.model.Kunde;
 import development.project.persistent.KundenCache;
 
+// DAO = Data access object
+
 public final class KundenDAO {
 
 	private static KundenDAO instance;
@@ -28,10 +30,10 @@ public final class KundenDAO {
 	public List<Kunde> simulateIncomingKundenData() {
 		return new ArrayList<Kunde>() {
 			{
-				add(new Kunde("Hanne", "schmidt"));
-				add(new Kunde("friedhelm", "meier"));
-				add(new Kunde("hans", "Glück"));
-				add(new Kunde("Alles", "Bestens"));
+				add(new Kunde("Hanne", "Schmidt"));
+				add(new Kunde("Steffen", "Meier"));
+				add(new Kunde("Hans", "Glück"));
+				add(new Kunde("Adam", "Smith"));
 			}
 		};
 	}
