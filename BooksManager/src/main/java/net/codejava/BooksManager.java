@@ -18,10 +18,10 @@ public class BooksManager {
 		begin();
 
 //		create();
-//		update();
+		update();
 //		find();
 //		query();
-		remove();
+//		remove();
 
 		end();
 	}
@@ -43,7 +43,7 @@ public class BooksManager {
 	private static void update() {
 		Book existBook = new Book();
 		existBook.setBookId(3);
-		existBook.setTitle("Thinking in Java (2nd Edition)");
+		existBook.setTitle("Java SE 8 Programmer II");
 		existBook.setAuthor("Bruce Eckel");
 		existBook.setPrice(30);
 		entityManager.merge(existBook);
