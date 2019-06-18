@@ -2,87 +2,24 @@ package net.codejava;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BookTest {
 
-	static EntityManagerFactory factory;
-	static EntityManager entityManager;
 	@Test
-	public static void main(String[] args) {
-
-		begin();
-
-//		create();
-		update();
-//		find();
-//		query();
-//		remove();
-
-		end();
-	}
-
-	@Test
-	private static void begin() {
-		factory = Persistence.createEntityManagerFactory("BookUnit");
-		entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-	}
-	@Test
-	private static void create() {
-		Book newBook = new Book();
-		newBook.setTitle("Java 7 Das Übungsbuch");
-		newBook.setAuthor("Elisabeth Jung ");
-		newBook.setPrice(40);
-		entityManager.persist(newBook);
-	}
-	@Test
-	private static void update() {
-		Book existBook = new Book();
-		existBook.setBookId(3);
-		existBook.setTitle("Java SE 8 Programmer II");
-		existBook.setAuthor("Bruce Eckel");
-		existBook.setPrice(30);
-		entityManager.merge(existBook);
-	}
-	@Test
-	private static void find() {
-		Integer primaryKey = 2;
-		Book book = entityManager.find(Book.class, primaryKey);
-		System.out.println(book.getTitle());
-		System.out.println(book.getAuthor());
-		System.out.println(book.getPrice());
-	}
-	@Test
-	private static void query() {
-		String jpql = "Select b From Book b Where b.price < 40";
-		Query query = entityManager.createQuery(jpql);
+	@DisplayName("OK!")
+	@Disabled
+	void test() {
+		NumberFormatException ex = assertThrows(NumberFormatException.class, () -> Integer.parseInt("Hallo"));
 		
-		@SuppressWarnings("unchecked")
-		List<Book> listBooks = query.getResultList();
-		
-		for (Book aBook : listBooks) {
-			System.out.println(aBook.getTitle() + ", "+ aBook.getAuthor() + ", " + aBook.getPrice() );
-		}
-	}
-	@Test
-	private static void remove() {
-		Integer primaryKey = 7;
-		Book reference = entityManager.getReference(Book.class, primaryKey);
-		entityManager.remove(reference);
-	}
-	@Test
-	private static void end() {
-		entityManager.getTransaction().commit();
-		entityManager.close();
-		factory.close();
+		String expected = "For input";
+		assertAll(() -> {
+			assertEquals(expected, ex.getMessage());
+		}, () -> {
+			assertNotNull(ex.getCause());
+		});
 	}
 
 }
