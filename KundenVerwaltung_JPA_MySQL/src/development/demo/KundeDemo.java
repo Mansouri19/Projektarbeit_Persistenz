@@ -9,11 +9,11 @@ import javax.persistence.Id;
 @Entity
 public class KundeDemo {
 	private Integer kundeId;
-	private String nachname;
-	private String vorname;
+	private String kundeNachname;
+	private String kundeVorname;
 
 	@Id
-	@Column(name = "kunde_id")
+	@Column(name = "kundedemo_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getKundeId() {
 		return kundeId;
@@ -23,20 +23,23 @@ public class KundeDemo {
 		this.kundeId = kundeId;
 	}
 
-	public String getNachname() {
-		return nachname;
+	public String getKundeNachname() {
+		return kundeNachname;
 	}
 
-	public void setNachname(String nachname) {
-		this.nachname = nachname;
+	public String getKundeVorname() {
+		return kundeVorname;
 	}
 
-	public String getVorname() {
-		return vorname;
+	public void setKundeNachname(String kundeNachname) {
+		this.kundeNachname = kundeNachname;
 	}
 
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
+	public void setKundeVorname(String kundeVorname) {
+		this.kundeVorname = kundeVorname;
 	}
+
+	
+
 
 }

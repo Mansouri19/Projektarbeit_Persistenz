@@ -1,5 +1,6 @@
 package development.project.dto;
 
+// DTO = Data transfer object
 public class BasicDTO extends Object {
 	private static int id = 0;
 	private int objID;

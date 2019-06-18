@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import net.codejava.Book;
 
 public class BooksManager {
 
@@ -43,9 +44,9 @@ public class BooksManager {
 	private static void update() {
 		Book existBook = new Book();
 		existBook.setBookId(3);
-		existBook.setTitle("Thinking in Java (2nd Edition)");
+		existBook.setTitle("Java SE 8 Programmer II");
 		existBook.setAuthor("Bruce Eckel");
-		existBook.setPrice(30);
+		existBook.setPrice(50);
 		entityManager.merge(existBook);
 	}
 
