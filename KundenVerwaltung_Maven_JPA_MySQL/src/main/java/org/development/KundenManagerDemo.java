@@ -16,8 +16,8 @@ public class KundenManagerDemo {
 
 		begin();
 
-//		create();
-		update();
+		create();
+//		update();
 //		find();
 //		query();
 //		remove();
@@ -33,10 +33,10 @@ public class KundenManagerDemo {
 
 	private static void create() {
 		KundeDemo newKunde = new KundeDemo();
-		newKunde.setKundeNachname("Smith");
-		newKunde.setKundeVorname("Adam");
-		newKunde.setKundeAlter(40);
-		newKunde.setKundeAbteilung("Production");
+		newKunde.setKundeNachname("Eckert");
+		newKunde.setKundeVorname("Hans");
+		newKunde.setKundeAlter(45);
+		newKunde.setKundeAbteilung("Managment");
 		entityManager.persist(newKunde);
 	}
 
