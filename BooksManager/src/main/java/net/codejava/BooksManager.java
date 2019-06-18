@@ -43,9 +43,9 @@ public class BooksManager {
 
 	private static void update() {
 		Book existBook = new Book();
-		existBook.setBookId(3);
+		existBook.setBookId(6);
 		existBook.setTitle("Java SE 8 Programmer II");
-		existBook.setAuthor("Bruce Eckel");
+		existBook.setAuthor("Bert Bates");
 		existBook.setPrice(50);
 		entityManager.merge(existBook);
 	}
