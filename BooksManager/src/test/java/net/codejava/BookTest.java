@@ -15,7 +15,7 @@ class BookTest {
 
 	static EntityManagerFactory factory;
 	static EntityManager entityManager;
-
+	@Test
 	public static void main(String[] args) {
 
 		begin();
