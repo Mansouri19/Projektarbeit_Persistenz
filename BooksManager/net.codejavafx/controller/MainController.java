@@ -101,7 +101,7 @@ public class MainController {
 
 	private void onBookList() { // Wird von der initialize()-Methode ausgeführt
 		clearStatusText();
-		System.out.println("================> Tab aktiviert!!!");
+		System.out.println("==> Tab aktiviert!!!");
 		// 1. Benutzereingabe auswerten, konvertieren, validieren und passende Objekte
 		// bilden
 		// Nichts zu tun
@@ -175,7 +175,7 @@ public class MainController {
 
 	@FXML
 	void initialize() {
-		System.out.println("=================> Starting the Book Management Application ...");
+		System.out.println("==> Starting the Book Management Application ...");
 		bookService = new BookService();
 		clearStatusText();
 		onBookList();
