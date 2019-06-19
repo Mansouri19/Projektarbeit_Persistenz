@@ -16,8 +16,8 @@ public class KundenManagerDemo {
 
 		begin();
 
-		create();
-//		update();
+//		create();
+		update();
 //		find();
 //		query();
 //		remove();
