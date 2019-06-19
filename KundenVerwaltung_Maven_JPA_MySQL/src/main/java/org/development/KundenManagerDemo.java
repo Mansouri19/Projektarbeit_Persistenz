@@ -33,10 +33,10 @@ public class KundenManagerDemo {
 
 	private static void create() {
 		KundeDemo newKunde = new KundeDemo();
-		newKunde.setKundeNachname("Eckert");
-		newKunde.setKundeVorname("Hans");
-		newKunde.setKundeAlter(45);
-		newKunde.setKundeAbteilung("Managment");
+		newKunde.setKundeNachname("Kaiser");
+		newKunde.setKundeVorname("Michael");
+		newKunde.setKundeAlter(30);
+		newKunde.setKundeAbteilung("Research");
 		entityManager.persist(newKunde);
 	}
 
