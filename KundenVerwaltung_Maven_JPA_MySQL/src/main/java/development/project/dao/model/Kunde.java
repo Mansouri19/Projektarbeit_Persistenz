@@ -1,11 +1,21 @@
 package development.project.dao.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import development.project.dto.BasicDTO;
 import development.project.persistent.KundenCache;
 
+@Entity
 public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
 	private String vorname;
 	private String nachname;
+
+	public Kunde() {
+	}
 
 	public Kunde(String vorname, String nachname) {
 		this.vorname = vorname;
@@ -39,6 +49,9 @@ public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
 		this.nachname = nachname;
 	}
 
+	@Id
+	@Column(name = "")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Override
 	public String getNachname() {
 		return this.nachname;
