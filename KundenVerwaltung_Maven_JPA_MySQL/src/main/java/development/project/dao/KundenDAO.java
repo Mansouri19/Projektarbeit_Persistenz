@@ -31,7 +31,7 @@ public final class KundenDAO {
 				add(new Kunde("Hanne", "schmidt"));
 				add(new Kunde("friedhelm", "meier"));
 				add(new Kunde("hans", "Glück"));
-				add(new Kunde("Alles", "Bestens"));
+				add(new Kunde("Adam", "Smith"));
 			}
 		};
 	}

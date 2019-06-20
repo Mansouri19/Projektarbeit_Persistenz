@@ -84,15 +84,19 @@
                     </GridPane>
                     <HBox spacing="10.0">
                       <children>
-                        <Button mnemonicParsing="false" onAction="#onBookCreate" text="Neu anlegen" />
+                        <Button mnemonicParsing="false" onAction="#onBookCreate" prefHeight="31.0" prefWidth="142.0" text="Neu anlegen" />
+                        <Button mnemonicParsing="false" onAction="#onBookUpdate" prefHeight="31.0" prefWidth="141.0" text="aktualisieren" />
+                        <Button mnemonicParsing="false" onAction="#onBookDelete" prefHeight="31.0" prefWidth="143.0" text="Löschen" />
+                        <Button mnemonicParsing="false" onAction="#onBookReset" prefHeight="31.0" prefWidth="146.0" text="Zurücksetzen" />
+                      </children>
+                    </HBox>
+                              <HBox prefHeight="103.0" prefWidth="599.0">
+                                 <children>
                         <Button fx:id="fillData1_btn" mnemonicParsing="false" onAction="#fillData" text="1" />
                         <Button fx:id="fillData2_btn" mnemonicParsing="false" onAction="#fillData" text="2" />
                         <Button fx:id="fillData3_btn" mnemonicParsing="false" onAction="#fillData" text="3" />
-                        <Button mnemonicParsing="false" onAction="#onBookUpdate" text="aktualisieren" />
-                        <Button mnemonicParsing="false" onAction="#onBookDelete" text="Löschen" />
-                        <Button mnemonicParsing="false" onAction="#onBookReset" text="Zurücksetzen" />
-                      </children>
-                    </HBox>
+                                 </children>
+                              </HBox>
                   </children>
                   <padding>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
