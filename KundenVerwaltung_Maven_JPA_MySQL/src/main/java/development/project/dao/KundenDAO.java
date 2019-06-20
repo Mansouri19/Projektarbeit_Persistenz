@@ -29,7 +29,7 @@ public final class KundenDAO {
 		return new ArrayList<Kunde>() {
 			{
 				add(new Kunde("Hanne", "schmidt"));
-				add(new Kunde("friedhelm", "meier"));
+				add(new Kunde("steffen", "meier"));
 				add(new Kunde("hans", "Glück"));
 				add(new Kunde("Adam", "Smith"));
 			}
