@@ -11,7 +11,7 @@
   
 ## Projekt - Aufgaben
 
-#### I.	Überblick über JPA und Hibernate
+#### 1.	Überblick über JPA und Hibernate
 
 ##### •	JPA ist eine Java-API-Spezifikation für die Verwaltung relationaler Daten in Anwendungen, die Java SE und Java EE verwenden.
 ##### •	Verwendete Version: JPA 2.1
@@ -20,12 +20,12 @@
 ##### •	Implementierungen: Hibernate, EclipseLink, OpenJPA…
 ##### •	Hibernate ist ein Object-Relational Mapping Framework (ORM), ein Anbieter von  JPA.
 
-#### II.	Eine MySQL Datenbank erstellen
+#### 2.	Eine MySQL Datenbank erstellen
 
 ##### •	Datenbank Name:
 ##### •	Tabelle Name:
 
-#### III. Java Maven Project in Eclipse einrichten 
+#### 3. Java Maven Project in Eclipse einrichten 
 ##### •	Maven Projekt erstellen: In Eclipse File > new > Maven Project
 	    Projekt Name: KundenVerwaltung_Maven_JPA_MySQL (Beispiel)
 	    Group Id: org.development
@@ -69,7 +69,7 @@
 	</dependencies>
 </project>
 
-#### IV. Java Model Class +  JPA Annotations erstellen
+#### 4. Java Model Class +  JPA Annotations erstellen
 ##### •	Verwendung der JPA Annotations
 	   @Entity
 	   @Id
@@ -77,7 +77,7 @@
 	   @Table
 	   @Column
 
-#### V.	JPA Configuration File erstellen
+#### 5.	JPA Configuration File erstellen
 ##### •	persistence.xml erstellen
       META-INF Datei in src/main/resources erstellen
 ##### •	META-INF > new > XML File > File name: persistence.xml > Source
@@ -106,7 +106,7 @@
 	</persistence-unit>
 </persistence>
 
-#### VI. Verwendung der EntityManager and EntityManagerFactory
+#### 6. Verwendung der EntityManager and EntityManagerFactory
 ##### • EntityManager
     - Ein Persistenzkontext ist eine Menge von Entities (Objekt der Modellklassen.
     - EntityManager wird verwendet, um mit dem Persistenzkontext zu interagieren (Datenbank).
@@ -117,7 +117,7 @@
      - Die EntityManagerFactory wird einer Persistenzeinheit zugeordnet.
      - Erzeugt eine EntityManager.
 
-#### VII. Testprogramm
+#### 7. Testprogramm
 
 ##### • Schritte:
      - EntityManagerFactory erzeugen
@@ -128,10 +128,20 @@
      - Close die EntityManager
      - Close die EntityManagerFactory
 
-#### VIII. Ziel (To Do)
+#### 8. Ziel (To Do)
 ##### • KundenVerwaltung_JPA_MySQL bearbeiten
-      - siehe KundenVerwaltung_JPA_MySQL[Projectarbeit_Persistenz master]
+      - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
       - Testprogramm (BooksManager) Schritte folgen 
+      
+#### 9. Tips
+    - compiler error sign
+    -> In Eclipse > window > Show View > Other > Problems
+
+    - Java compiler level does not match the version of the installed Java project facet
+    -> Can you do it: - Right-click on your project - Click Properties - Click the "Project Facets" option on the left
+       menu - Under Facets section "Java" on the right, change it to  "1.8" or your version... - Click Ok
+                   
+
 
 
 
