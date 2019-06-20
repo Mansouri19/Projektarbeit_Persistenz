@@ -32,6 +32,7 @@ public final class KundenDAO {
 				add(new Kunde("steffen", "meier"));
 				add(new Kunde("hans", "Glück"));
 				add(new Kunde("Adam", "Smith"));
+				add(new Kunde("michael", "hofmann"));
 			}
 		};
 	}
