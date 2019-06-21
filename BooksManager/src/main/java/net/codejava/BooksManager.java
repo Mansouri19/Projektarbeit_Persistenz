@@ -32,14 +32,12 @@ public class BooksManager {
 		end();
 	}
 
-	@Before
 	private static void begin() {
 		factory = Persistence.createEntityManagerFactory("BookUnit");
 		entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 	}
 
-	@Before
 	private static void create() {
 		Book newBook = new Book();
 		newBook.setTitle("Java 7 Das Übungsbuch");
@@ -77,7 +75,7 @@ public class BooksManager {
 			System.out.println(aBook.getTitle() + ", " + aBook.getAuthor() + ", " + aBook.getPrice());
 			assertTrue(aBook.getPrice() < 40);
 		}
-		
+
 	}
 
 	private static void remove() {
