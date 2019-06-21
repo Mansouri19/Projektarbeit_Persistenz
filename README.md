@@ -25,7 +25,7 @@
 - Tabelle Name:
 
 ### 3. Java Maven Project in Eclipse einrichten 
-- Maven Projekt erstellen: In Eclipse File > new > Maven Project
+- Maven Projekt erstellen: In Eclipse File -> new -> Maven Project
      - Projekt Name: KundenVerwaltung_Maven_JPA_MySQL (Beispiel)
      - Group Id: org.development
      - Artifact Id: KundenVerwaltung_Maven_JPA_MySQL
@@ -76,6 +76,7 @@
 
 ### 4. Java Model Class +  JPA Annotations erstellen
 - Verwendung der JPA Annotations
+
 	   @Entity
 	   @Id
 	   @GeneratedValue
@@ -87,7 +88,7 @@
   
           META-INF Datei in src/main/resources erstellen
 	  
-- META-INF > new > XML File > File name: persistence.xml > Source
+- META-INF -> new -> XML File -> File name: persistence.xml -> Source
 - JPA persistence schemas sowie persistence-unit und properties einfügen:
   
         Browser: JPA XML Schemas (Oracle) 
