@@ -11,8 +11,12 @@ import development.project.persistent.KundenCache;
 
 @Entity
 public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
+	private Integer kundeId;
 	private String vorname;
 	private String nachname;
+	private String geburtsdatum;
+	private String adresse;
+	private String telNr;
 
 	public Kunde() {
 	}
@@ -22,10 +26,15 @@ public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
 		this.nachname = nachname;
 	}
 
-	@Override
-	public void store() {
-		this.markAsTouched(false);
-		KundenCache.getInstance().put(this.getID(), this);
+	@Id
+	@Column(name = "..........")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getKundeId() {
+		return kundeId;
+	}
+
+	public void setKundeId(Integer kundeId) {
+		this.kundeId = kundeId;
 	}
 
 	@Override
@@ -49,12 +58,15 @@ public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
 		this.nachname = nachname;
 	}
 
-	@Id
-	@Column(name = "")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Override
 	public String getNachname() {
 		return this.nachname;
+	}
+
+	@Override
+	public void store() {
+		this.markAsTouched(false);
+		KundenCache.getInstance().put(this.getID(), this);
 	}
 
 	@Override

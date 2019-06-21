@@ -2,6 +2,11 @@ package net.codejava;
 
 import javax.persistence.Query;
 
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -27,12 +32,14 @@ public class BooksManager {
 		end();
 	}
 
+	@Before
 	private static void begin() {
 		factory = Persistence.createEntityManagerFactory("BookUnit");
 		entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 	}
 
+	@Before
 	private static void create() {
 		Book newBook = new Book();
 		newBook.setTitle("Java 7 Das Übungsbuch");
@@ -58,18 +65,21 @@ public class BooksManager {
 		System.out.println(book.getPrice());
 	}
 
+	@Test
 	private static void query() {
 		String jpql = "Select b From Book b Where b.price < 40";
 		Query query = entityManager.createQuery(jpql);
-		
+
 		@SuppressWarnings("unchecked")
 		List<Book> listBooks = query.getResultList();
-		
+
 		for (Book aBook : listBooks) {
-			System.out.println(aBook.getTitle() + ", "+ aBook.getAuthor() + ", " + aBook.getPrice() );
+			System.out.println(aBook.getTitle() + ", " + aBook.getAuthor() + ", " + aBook.getPrice());
+			assertTrue(aBook.getPrice() < 40);
 		}
+		
 	}
-	
+
 	private static void remove() {
 		Integer primaryKey = 8;
 		Book reference = entityManager.getReference(Book.class, primaryKey);
