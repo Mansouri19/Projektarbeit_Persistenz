@@ -141,6 +141,7 @@
 
 ### 8. Ziel (To Do)
 - KundenVerwaltung_Maven_JPA_MySQL bearbeiten
+
       - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
       - Testprogramm (BooksManager) Schritte folgen 
       
