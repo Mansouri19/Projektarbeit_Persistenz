@@ -133,8 +133,9 @@
 ##### • KundenVerwaltung_Maven_JPA_MySQL bearbeiten
       - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
       - Testprogramm (BooksManager) Schritte folgen 
+#### 9. Hibernate Lifeziklus und CRUD Methoden   
       
-#### 9. Tips
+#### 10. Tips
     - compiler error sign
     -> In Eclipse > window > Show View > Other > Problems
 
