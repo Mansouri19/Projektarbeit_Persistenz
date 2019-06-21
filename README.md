@@ -1,17 +1,17 @@
 # Projektarbeit_Persistenz
 ## Verwendete Softwareprogramme und Technologien 
-##### •  Git Bash - GitHub
-##### •  Java SE 8
-##### •  Eclipse IDE: 2018-12
-##### •  MySQL: 8.0.16 (MySQL Community Server - GLP)
-##### •  HIBERNATE : ORM 5.2
-##### •  JPA: Java Persistence API 2.1
-##### •  (JUnit 5)
-##### •  (Swing oder Javafx)
+  - Git Bash - GitHub
+  - Java SE 8
+  - Eclipse IDE: 2018-12
+  - MySQL: 8.0.16 (MySQL Community Server - GLP)
+  - HIBERNATE : ORM 5.2
+  - JPA: Java Persistence API 2.1
+  - (JUnit 5)
+  - (Swing oder Javafx)
   
 ## Projekt - Aufgaben
 
-#### 1.	Überblick über JPA und Hibernate
+### 1.	Überblick über JPA und Hibernate
 
 ##### •	JPA ist eine Java-API-Spezifikation für die Verwaltung relationaler Daten in Anwendungen, die Java SE und Java EE verwenden.
 ##### •	Verwendete Version: JPA 2.1
