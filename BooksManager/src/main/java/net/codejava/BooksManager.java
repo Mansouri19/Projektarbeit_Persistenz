@@ -42,7 +42,7 @@ public class BooksManager {
 		Book newBook = new Book();
 		newBook.setTitle("Java 7 Das Übungsbuch");
 		newBook.setAuthor("Elisabeth Jung ");
-		newBook.setPrice(40);
+		newBook.setPrice(38);
 		entityManager.persist(newBook);
 	}
 

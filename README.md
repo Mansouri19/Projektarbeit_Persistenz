@@ -32,8 +32,8 @@
           - JRE System Library anpassen (Properties in pom.xml Datei einfügen):
 	  
 	             <properties>
-		         <maven.compiler.source>1.8</maven.compiler.source>
-		         <maven.compiler.target>1.8</maven.compiler.target>
+		             <maven.compiler.source>1.8</maven.compiler.source>
+		             <maven.compiler.target>1.8</maven.compiler.target>
 	              </properties>
 	         
            -> Tips: nach Import projects vom GitHub Respository -> Maus Rechtsklick > Maven > Update Project
@@ -54,24 +54,24 @@
    - Dependencies konfiguration in pom.xml sieht so aus :
    
          <project xmlns="http://maven.apache.org/POM/4.0.0"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-           <modelVersion>4.0.0</modelVersion>
-           <groupId>net.codejava</groupId>
-           <artifactId>BooksManager</artifactId>
-           <version>0.0.1-SNAPSHOT</version>
-           <dependencies>
-	       <dependency>
-		   <groupId>org.hibernate</groupId>
-		   <artifactId>hibernate-core</artifactId>
-		   <version>5.2.12.Final</version>
-	       </dependency>
-	        <dependency>
-		   <groupId>mysql</groupId>
-		   <artifactId>mysql-connector-java</artifactId>
-		   <version>8.0.16</version>
-	        </dependency>
-            </dependencies>
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+            <modelVersion>4.0.0</modelVersion>
+            <groupId>net.codejava</groupId>
+            <artifactId>BooksManager</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+          <dependencies>
+	         <dependency>
+		        <groupId>org.hibernate</groupId>
+		        <artifactId>hibernate-core</artifactId>
+		        <version>5.2.12.Final</version>
+	         </dependency>
+	         <dependency>
+		        <groupId>mysql</groupId>
+		        <artifactId>mysql-connector-java</artifactId>
+		        <version>8.0.16</version>
+	         </dependency>
+           </dependencies>
          </project>
 
 ### 4. Java Model Class +  JPA Annotations erstellen
