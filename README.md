@@ -39,16 +39,16 @@
            -> Tips: nach Import projects vom GitHub Respository -> Maus Rechtsklick > Maven > Update Project
 	   
  - Dependencies konfigurieren für :
-    - Hibernate (ORM)
+   - Hibernate (ORM)
     
               Browser: https://search.maven.org/ -> search -> hibernate-core
-		  org.hibernate:hibernate-core:5.2.12.Final
-	          pmo.xml -> Dependencies
-                  Artifact Id: hibernate-core
+              org.hibernate:hibernate-core:5.2.12.Final
+	           pmo.xml -> Dependencies
+	           Artifact Id: hibernate-core
 		
-    - MySQL Connector Java (JDBC Driver)
+   - MySQL Connector Java (JDBC Driver)
     
-              Artifact Id: mysql-connector-java
+         Artifact Id: mysql-connector-java
 	      mysql:mysql-connector-java:8.0.16
      
    - Dependencies konfiguration in pom.xml sieht so aus :
@@ -92,7 +92,8 @@
 - JPA persistence schemas sowie persistence-unit und properties einfügen:
   
         Browser: JPA XML Schemas (Oracle) 
-	    -> Datei: persistence_2_1.xsd öffnen -> Code-Teil kopieren und einfügen (siehe unten)  
+	    -> Datei: persistence_2_1.xsd öffnen -> Code-Teil kopieren und einfügen (siehe unten) 
+	     
 - Properties angeben :  
   
         JDBC: URL, User, Password
