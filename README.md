@@ -1,4 +1,5 @@
 # Projektarbeit_Persistenz
+
 ## Verwendete Softwareprogramme und Technologien 
   - Git Bash - GitHub
   - Java SE 8
@@ -10,20 +11,18 @@
   - (Swing oder Javafx)
   
 ## Projekt - Aufgaben
-
 ### 1.	Überblick über JPA und Hibernate
-
-##### •	JPA ist eine Java-API-Spezifikation für die Verwaltung relationaler Daten in Anwendungen, die Java SE und Java EE verwenden.
-##### •	Verwendete Version: JPA 2.1
-##### •	API Package: javax.persistence
-##### •	Java Persistence Query Language (JPQL)
-##### •	Implementierungen: Hibernate, EclipseLink, OpenJPA…
-##### •	Hibernate ist ein Object-Relational Mapping Framework (ORM), ein Anbieter von  JPA.
+        - JPA ist eine Java-API-Spezifikation für die Verwaltung relationaler Daten in Anwendungen, die Java SE und Java EE verwenden.
+	- Verwendete Version: JPA 2.1
+	- API Package: javax.persistence
+        - Java Persistence Query Language (JPQL)
+	- Implementierungen: Hibernate, EclipseLink, OpenJPA…
+	- Hibernate ist ein Object-Relational Mapping Framework (ORM), ein Anbieter von  JPA.
+	- Hibernate verwendet Hibernate Query Language (HQL) zum Abfragen von Daten.
 
 #### 2.	Eine MySQL Datenbank erstellen
-
-##### •	Datenbank Name:
-##### •	Tabelle Name:
+        - Datenbank Name:
+	- Tabelle Name:
 
 #### 3. Java Maven Project in Eclipse einrichten 
 ##### •	Maven Projekt erstellen: In Eclipse File > new > Maven Project
