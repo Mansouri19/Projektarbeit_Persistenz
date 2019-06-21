@@ -20,17 +20,16 @@
    - Hibernate ist ein Object-Relational Mapping Framework (ORM), ein Anbieter von  JPA.
    - Hibernate verwendet Hibernate Query Language (HQL) zum Abfragen von Daten.
 
-#### 2.	Eine MySQL Datenbank erstellen
+### 2.	Eine MySQL Datenbank erstellen
    - Datenbank Name:
    - Tabelle Name:
 
-#### 3. Java Maven Project in Eclipse einrichten 
-##### •	Maven Projekt erstellen: In Eclipse File > new > Maven Project
-	    Projekt Name: KundenVerwaltung_Maven_JPA_MySQL (Beispiel)
-	    Group Id: org.development
-	    Artifact Id: KundenVerwaltung_Maven_JPA_MySQL
-	    
-	   - JRE System Library anpassen (Properties in pom.xml Datei einfügen):
+### 3. Java Maven Project in Eclipse einrichten 
+   - Maven Projekt erstellen: In Eclipse File > new > Maven Project
+     - Projekt Name: KundenVerwaltung_Maven_JPA_MySQL (Beispiel)
+     - Group Id: org.development
+     - Artifact Id: KundenVerwaltung_Maven_JPA_MySQL
+          - JRE System Library anpassen (Properties in pom.xml Datei einfügen):
 	         <properties>
 		         <maven.compiler.source>1.8</maven.compiler.source>
 		         <maven.compiler.target>1.8</maven.compiler.target>
