@@ -76,6 +76,7 @@
 	   @GeneratedValue
 	   @Table
 	   @Column
+##### •	Verwendung der JPA Annotations
 
 #### 5.	JPA Configuration File erstellen
 ##### •	persistence.xml erstellen
@@ -129,7 +130,7 @@
      - Close die EntityManagerFactory
 
 #### 8. Ziel (To Do)
-##### • KundenVerwaltung_JPA_MySQL bearbeiten
+##### • KundenVerwaltung_Maven_JPA_MySQL bearbeiten
       - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
       - Testprogramm (BooksManager) Schritte folgen 
       
