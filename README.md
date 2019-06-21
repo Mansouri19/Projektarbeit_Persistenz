@@ -1,99 +1,111 @@
 # Projektarbeit_Persistenz
 
 ## Verwendete Softwareprogramme und Technologien 
-  - Git Bash - GitHub
-  - Java SE 8
-  - Eclipse IDE: 2018-12
-  - MySQL: 8.0.16 (MySQL Community Server - GLP)
-  - HIBERNATE : ORM 5.2
-  - JPA: Java Persistence API 2.1
-  - (JUnit 5)
-  - (Swing oder Javafx)
+- Git Bash - GitHub
+- Java SE 8
+- Eclipse IDE: 2018-12
+- MySQL: 8.0.16 (MySQL Community Server - GLP)
+- HIBERNATE : ORM 5.2
+- JPA: Java Persistence API 2.1
+- (JUnit 5)
+- (Swing oder Javafx)
   
 ## Projekt - Aufgaben
 ### 1.	Überblick über JPA und Hibernate
-   - JPA ist eine Java-API-Spezifikation für die Verwaltung relationaler Daten in Anwendungen, die Java SE und Java EE verwenden.
-   - Verwendete Version: JPA 2.1
-   - API Package: javax.persistence
-   - Java Persistence Query Language (JPQL)
-   - Implementierungen: Hibernate, EclipseLink, OpenJPA…
-   - Hibernate ist ein Object-Relational Mapping Framework (ORM), ein Anbieter von  JPA.
-   - Hibernate verwendet Hibernate Query Language (HQL) zum Abfragen von Daten.
+- JPA ist eine Java-API-Spezifikation für die Verwaltung relationaler Daten in Anwendungen, die Java SE und Java EE verwenden.
+- Verwendete Version: JPA 2.1
+- API Package: javax.persistence
+- Java Persistence Query Language (JPQL)
+- Implementierungen: Hibernate, EclipseLink, OpenJPA…
+- Hibernate ist ein Object-Relational Mapping Framework (ORM), ein Anbieter von  JPA.
+- Hibernate verwendet Hibernate Query Language (HQL) zum Abfragen von Daten.
 
 ### 2.	Eine MySQL Datenbank erstellen
-   - Datenbank Name:
-   - Tabelle Name:
+- Datenbank Name:
+- Tabelle Name:
 
 ### 3. Java Maven Project in Eclipse einrichten 
-   - Maven Projekt erstellen: In Eclipse File > new > Maven Project
+- Maven Projekt erstellen: In Eclipse File > new > Maven Project
      - Projekt Name: KundenVerwaltung_Maven_JPA_MySQL (Beispiel)
      - Group Id: org.development
      - Artifact Id: KundenVerwaltung_Maven_JPA_MySQL
           - JRE System Library anpassen (Properties in pom.xml Datei einfügen):
-	         <properties>
+	  
+	             <properties>
 		         <maven.compiler.source>1.8</maven.compiler.source>
 		         <maven.compiler.target>1.8</maven.compiler.target>
-	         </properties>
+	              </properties>
 	         
-       -> Tips: nach Import projects vom GitHub Respository -> Maus Rechtsklick > Maven > Update Project
-##### •	Dependencies konfigurieren für :
-	 - Hibernate (ORM), Artifact Id: hibernate-core
-	   MySQL Connector Java (JDBC Driver), Artifact Id: mysql-connector-java
-	   pmo.xml > Dependencies
-         Browser: https://search.maven.org/ > search> hibernate-core
-         org.hibernate:hibernate-core:5.2.12.Final
-         
-     - mysql:mysql-connector-java:8.0.16
+           -> Tips: nach Import projects vom GitHub Respository -> Maus Rechtsklick > Maven > Update Project
+	   
+ - Dependencies konfigurieren für :
+    - Hibernate (ORM)
+    
+              Browser: https://search.maven.org/ -> search -> hibernate-core
+		  org.hibernate:hibernate-core:5.2.12.Final
+	          pmo.xml -> Dependencies
+                  Artifact Id: hibernate-core
+		
+    - MySQL Connector Java (JDBC Driver)
+    
+              Artifact Id: mysql-connector-java
+	      mysql:mysql-connector-java:8.0.16
      
-##### •	Dependencies konfiguration in pom.xml sieht so aus :
-        <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.codejava</groupId>
-	<artifactId>BooksManager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<dependencies>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.2.12.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.16</version>
-		</dependency>
-	</dependencies>
-</project>
+   - Dependencies konfiguration in pom.xml sieht so aus :
+   
+         <project xmlns="http://maven.apache.org/POM/4.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+           <modelVersion>4.0.0</modelVersion>
+           <groupId>net.codejava</groupId>
+           <artifactId>BooksManager</artifactId>
+           <version>0.0.1-SNAPSHOT</version>
+           <dependencies>
+	       <dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-core</artifactId>
+		   <version>5.2.12.Final</version>
+	       </dependency>
+	        <dependency>
+		   <groupId>mysql</groupId>
+		   <artifactId>mysql-connector-java</artifactId>
+		   <version>8.0.16</version>
+	        </dependency>
+            </dependencies>
+         </project>
 
-#### 4. Java Model Class +  JPA Annotations erstellen
-##### •	Verwendung der JPA Annotations
+### 4. Java Model Class +  JPA Annotations erstellen
+- Verwendung der JPA Annotations
 	   @Entity
 	   @Id
 	   @GeneratedValue
 	   @Table
 	   @Column
-##### •	Verwendung der JPA Annotations
 
-#### 5.	JPA Configuration File erstellen
-##### •	persistence.xml erstellen
-      META-INF Datei in src/main/resources erstellen
-##### •	META-INF > new > XML File > File name: persistence.xml > Source
-##### • JPA persistence schemas sowie persistence-unit und properties einfügen:
-        Browser: JPA XML Schemas (Oracle) > Datei: persistence_2_1.xsd öffnen > Code-Teil kopieren und einfügen (siehe unten)  
-##### • Properties angeben :  
+### 5.	JPA Configuration File erstellen
+- persistence.xml erstellen
+  
+          META-INF Datei in src/main/resources erstellen
+	  
+- META-INF > new > XML File > File name: persistence.xml > Source
+- JPA persistence schemas sowie persistence-unit und properties einfügen:
+  
+        Browser: JPA XML Schemas (Oracle) 
+	    -> Datei: persistence_2_1.xsd öffnen -> Code-Teil kopieren und einfügen (siehe unten)  
+- Properties angeben :  
+  
         JDBC: URL, User, Password
         Show und Format SQL  
-##### • konfiguration in persistence.xml sieht so aus :    
+	
+- konfiguration in persistence.xml sieht so aus :    
  
-    <?xml version="1.0" encoding="UTF-8"?>
-    <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-          http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
-	version="2.1">
-	<persistence-unit name="BookUnit">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	    version="2.1">
+	    <persistence-unit name="BookUnit">
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/booksdb?serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
@@ -102,23 +114,22 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
 		</properties>
-	</persistence-unit>
-</persistence>
+	    </persistence-unit>
+        </persistence>
 
-#### 6. Verwendung der EntityManager and EntityManagerFactory
-##### • EntityManager
-    - Ein Persistenzkontext ist eine Menge von Entities (Objekt der Modellklassen.
-    - EntityManager wird verwendet, um mit dem Persistenzkontext zu interagieren (Datenbank).
-    - Verwaltung der Entitätsinstanzen und deren Lebenszyklus (begin und end).
-    - Verwendung der CRUD Methoden (create, update, remove, find, Query Entities). 
+### 6. Verwendung der EntityManager and EntityManagerFactory
+- EntityManager
+     - Ein Persistenzkontext ist eine Menge von Entities (Objekt der Modellklassen.
+     - EntityManager wird verwendet, um mit dem Persistenzkontext zu interagieren (Datenbank).
+     - Verwaltung der Entitätsinstanzen und deren Lebenszyklus (begin und end).
+     - Verwendung der CRUD Methoden (create, update, remove, find, Query Entities). 
     
-##### • EntityManagerFactory
+- EntityManagerFactory
      - Die EntityManagerFactory wird einer Persistenzeinheit zugeordnet.
      - Erzeugt eine EntityManager.
 
-#### 7. Testprogramm
-
-##### • Schritte:
+### 7. Testprogramm
+- Schritte:
      - EntityManagerFactory erzeugen
      - EntityManager erzeugen 
      - Transaction beginnen 
@@ -127,13 +138,14 @@
      - Close die EntityManager
      - Close die EntityManagerFactory
 
-#### 8. Ziel (To Do)
-##### • KundenVerwaltung_Maven_JPA_MySQL bearbeiten
+### 8. Ziel (To Do)
+- KundenVerwaltung_Maven_JPA_MySQL bearbeiten
       - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
       - Testprogramm (BooksManager) Schritte folgen 
-#### 9. Hibernate Lifeziklus und CRUD Methoden   
       
-#### 10. Tips
+### 9. Hibernate Lifeziklus und CRUD Methoden   
+      
+### 10. Tips
     - compiler error sign
     -> In Eclipse > window > Show View > Other > Problems
 
