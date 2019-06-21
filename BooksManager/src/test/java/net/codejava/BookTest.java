@@ -93,48 +93,35 @@ class BookTest {
 		factory.close();
 	}
 
-	/*
-	 * ##################################################### Beispiele
-	 * 
-	 * @Test
-	 * 
-	 * @DisplayName("OK!")
-	 * 
-	 * @Disabled void test() {
-	 * 
-	 * NumberFormatException ex = assertThrows(NumberFormatException.class, () ->
-	 * Integer.parseInt("Hallo")); String expected = "For input"; assertAll(() -> {
-	 * assertEquals(expected, ex.getMessage()); }, () -> {
-	 * assertNotNull(ex.getCause()); }); }
-	 * 
-	 * // ##################################################################
-	 * 
-	 * @ParameterizedTest
-	 * 
-	 * @ValueSource(ints = { 3, 6, 9 }) void triple1(int i) { assertTrue(i % 3 ==
-	 * 0); }
-	 * 
-	 * // ##################################################################
-	 * 
-	 * @Nested class Inner {
-	 * 
-	 * @TestFactory
-	 * 
-	 * @Tag(value = "important") Stream<DynamicTest> triple2() { return
-	 * IntStream.of(3, 6, 9).mapToObj(i -> DynamicTest.dynamicTest(i + "?", () -> {
-	 * assertTrue(i % 3 == 0); }));
-	 * 
-	 * } }
-	 * 
-	 * // ##################################################################
-	 * 
-	 * @ParameterizedTest(name = "#{index} |{0}| =? {1}")
-	 * 
-	 * @CsvSource({ "four,4", "seven,5" }) void wordLength(String word, int length)
-	 * { assertEquals(length, word.length()); }
-	 */
+/* Beispiele
+ -------------------------------*/	  
 	
-	
-	
+//	  @Test  
+//	  @DisplayName("OK!")
+//	  @Disabled void test() {
+//	   NumberFormatException ex = assertThrows(NumberFormatException.class, () ->
+//	   Integer.parseInt("Hallo")); String expected = "For input"; assertAll(() -> {
+//	   assertEquals(expected, ex.getMessage()); }, () -> {
+//	   assertNotNull(ex.getCause()); }); }
+	  
+//	 ##################################################################
+//	 
+//	  @ParameterizedTest	 
+//	  @ValueSource(ints = { 3, 6, 9 }) void triple1(int i) { assertTrue(i % 3 ==0); }
+	  
+// ##################################################################
+//	 
+//	 @Nested class Inner {
+//     @TestFactory
+//	 @Tag(value = "important") Stream<DynamicTest> triple2() { return
+//	 IntStream.of(3, 6, 9).mapToObj(i -> DynamicTest.dynamicTest(i + "?", () -> {
+//	 assertTrue(i % 3 == 0); })); } 
+//     }
+// ##################################################################
+	  
+//	  @ParameterizedTest(name = "#{index} |{0}| =? {1}")  
+//	  @CsvSource({ "four,4", "seven,5" }) void wordLength(String word, int length)
+//	  { assertEquals(length, word.length()); }
+//	 
 
 }
