@@ -1,20 +1,33 @@
 package development.project.dao.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import development.project.dto.BasicDTO;
 import development.project.persistent.KundenCache;
 
 @Entity
-public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
+@Table(name = "kunde")
+public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInterface {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "kunde_id", unique = true)
 	private Integer kundeId;
+
+	@Column(name = "vorname", nullable = false)
 	private String vorname;
+
+	@Column(name = "nachname", nullable = false)
 	private String nachname;
+
+	@Column(name = "geburtsdatum", nullable = false)
 	private String geburtsdatum;
+
 	private String adresse;
 	private String telNr;
 
@@ -26,15 +39,12 @@ public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
 		this.nachname = nachname;
 	}
 
-	@Id
-	@Column(name = "..........")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getKundeId() {
-		return kundeId;
-	}
-
 	public void setKundeId(Integer kundeId) {
 		this.kundeId = kundeId;
+	}
+
+	public Integer getKundeId() {
+		return kundeId;
 	}
 
 	@Override
@@ -61,6 +71,30 @@ public class Kunde extends BasicDTO implements Cloneable, KundeInterface {
 	@Override
 	public String getNachname() {
 		return this.nachname;
+	}
+
+	public String getGeburtsdatum() {
+		return geburtsdatum;
+	}
+
+	public void setGeburtsdatum(String geburtsdatum) {
+		this.geburtsdatum = geburtsdatum;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public String getTelNr() {
+		return telNr;
+	}
+
+	public void setTelNr(String telNr) {
+		this.telNr = telNr;
 	}
 
 	@Override
