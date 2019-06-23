@@ -1,5 +1,12 @@
 # Projektarbeit_Persistenz
 
+## Einleitung
+ In diesem Projekt werden drei Hauptanforderungen behandelt, nämlich Java Persistence API, Maven und Hibernate. Der Projektprozess wird mit Maven 
+ eingerichtet, in dem Abhängigkeiten (dependencies) hinzugefügt werden.
+ 
+ Anschließend wird anhand einer Reihe von Klassen und Methoden gezeigt, wie Hibernate das Hinzufügen, Ändern, Entfernen und Abrufen von Objektdaten 
+ aus einer MySQL-Datenbank behandelt.
+ 
 ## Verwendete Softwareprogramme und Technologien 
 - Git Bash - GitHub
 - Java SE 8
