@@ -21,10 +21,13 @@ public class KundenTest {
 
 	public static void main(String[] args) {
 
-		addKunde(1, "Adam", "Smith", "12.06.85", "GartenStr. 6", "+49881233");
+//		addKunde(1, "Adam", "Smith", "12.06.85", "GartenStr. 6", "+49881233");
+//		addKunde(2, "Hans", "Kaiser", "17.04.75", "HauptStr. 33", "+491712635");
+//		getKundenList();
+		
 		FACTORY.close();
 
-//		kundentest();
+		kundentest();
 	}
 
 	public static void addKunde(Integer kundeId, String vorname, String nachname, String geburtsdatum, String adresse,
@@ -71,7 +74,7 @@ public class KundenTest {
 
 	}
 
-	public static void getKundenList(Integer kundeId) {
+	public static void getKundenList() {
 		EntityManager entityManager = FACTORY.createEntityManager();
 		String query = "SELECT k FROM Kunde k WHERE k.kundeId IS NOT NULL";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
