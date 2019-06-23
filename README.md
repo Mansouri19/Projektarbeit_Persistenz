@@ -146,14 +146,47 @@
      - Commit die Transaction
      - Close die EntityManager
      - Close die EntityManagerFactory
+   
+### 8. Hibernate Lifeziklus und CRUD Methoden  
+   Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
+   
+               +--------------------------------> Transient ------------------------------------------+
+               |           new                        |                                               |
+               |                                      | save(), saveOrUpdate()                        |
+     Object ---|                                      | persist(), merge()                 wenn nicht persistent       
+               |                                      |                                               |
+               |      get(),load(), find()            V                                               |
+               +-------------------------------> Persistent ----------------------> Removed -------> Garbage
+                                                   |    |     delete(), remove()                      |
+                                                   |    |                                             |
+                                           clear() |    | update(), saveOrUpdate()                    |
+                                           evict() |    | refresh(), merge()                nach Session-Schluss  
+                                                   |    |                                             |
+                                                   V    |                                             |
+                                                  Detached -------------------------------------------+
+                                
+   - Transient:
+    
+        Wenn ein neues Java-Objekt aus einer Entität erstellt wird, hat dieses Objekt den Status "Transient".
+        Es wird nicht von Hibernate verwaltet.
+        
+    
+   - Persistent:
+    
+    
+   - Removed:
+   
+   - Detached:
+   
+### 9. Ziel (To Do)
+- Java-Projekt: KundenVerwaltung_Maven_JPA_MySQL bearbeiten
 
-### 8. Ziel (To Do)
-- KundenVerwaltung_Maven_JPA_MySQL bearbeiten
+- Lifeziklus der Java-Objekte überprüfen
 
       - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
       - Testprogramm (BooksManager) Schritte folgen 
-      
-### 9. Hibernate Lifeziklus und CRUD Methoden   
+  
+   
       
 ### 10. Tips
     - compiler error sign
