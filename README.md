@@ -151,23 +151,24 @@
    - Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
      -  Session Klasse von Hibernate verfügt über einige wichtige Methoden, die in Gruppen eingeteilt sind (siehe
         Diagramm daunten).
-   
-               +-------------------------------> Transient -------------------------------------------+
-               |           new                        |                                               |
-               |                                      | save(), saveOrUpdate()                        |
-     Object ---|                                      | persist(), merge()                 wenn nicht persistent       
-               |                                      |                                               |
-               |      get(),load(), find()            V                                               V
-               +-------------------------------> Persistent -----------------> Removed --- nach ----> Garbage
-                                                   |    |    delete(), remove()            Session-   |
-                                                   |    |                                  Schluss    |
-                                                   |    |                                             |
-                                           clear() |    | update(), saveOrUpdate()                    |
-                                           evict() |    | refresh(), merge()               wenn nicht wieder    
-                                                   |    |                                  angebracht(reattached)           
-                                                   V    |                                             |
-                                                  Detached -------------------------------------------+
-                                
+        
+                                               +---------+
+               +------------------------------>|Transient|------------------------------------------------+
+               |           new                 +---------+                                                |
+     +------+  |                                     | save(), saveOrUpdate()                             |
+     |Object|--|                                     | persist(), merge()                    wenn nicht persistent       
+     +------+  |                                     V                                                    |
+               |      get(),load(), find()     +----------+                    +-------+               +-------+                
+               +------------------------------>|Persistent|------------------->|Removed|---- nach ---->|Garbage|
+                                               +----------+  delete(),remove() +-------+     Session-  +-------+
+                                                   |    |                                    Schluss      |
+                                                   |    |                                                 |
+                                           clear() |    | update(), saveOrUpdate()                        |
+                                           evict() |    | refresh(), merge()                  wenn nicht wieder    
+                                                   V    |                                     angebracht(reattached)           
+                                                +----------+                                              |
+                                                | Detached | ---------------------------------------------+
+                                                +----------+
    - Transient:
     
         Wenn ein neues Java-Objekt aus einer Entität erstellt wird, hat dieses Objekt den Status "Transient".
