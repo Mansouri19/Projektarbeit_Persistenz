@@ -49,8 +49,8 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 
 	@Override
 	public void setVorname(String vorname) {
-		if (!this.isTouched())
-			this.markAsTouched((!this.vorname.equals(vorname)));
+//		if (!this.isTouched())
+//			this.markAsTouched((!this.vorname.equals(vorname)));
 
 		this.vorname = vorname;
 	}
@@ -62,8 +62,8 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 
 	@Override
 	public void setNachname(String nachname) {
-		if (!this.isTouched())
-			this.markAsTouched((!this.nachname.equals(nachname)));
+//		if (!this.isTouched())
+//			this.markAsTouched((!this.nachname.equals(nachname)));
 
 		this.nachname = nachname;
 	}
