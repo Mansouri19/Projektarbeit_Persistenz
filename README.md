@@ -148,20 +148,23 @@
      - Close die EntityManagerFactory
    
 ### 8. Hibernate Lifeziklus und CRUD Methoden  
-   Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
+   - Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
+     -  Session Klasse von Hibernate verfügt über einige wichtige Methoden, die in Gruppen eingeteilt sind (siehe
+        Diagramm daunten).
    
-               +--------------------------------> Transient ------------------------------------------+
+               +-------------------------------> Transient -------------------------------------------+
                |           new                        |                                               |
                |                                      | save(), saveOrUpdate()                        |
      Object ---|                                      | persist(), merge()                 wenn nicht persistent       
                |                                      |                                               |
-               |      get(),load(), find()            V                                               |
-               +-------------------------------> Persistent ----------------------> Removed -------> Garbage
-                                                   |    |     delete(), remove()                      |
+               |      get(),load(), find()            V                                               V
+               +-------------------------------> Persistent -----------------> Removed --- nach ----> Garbage
+                                                   |    |    delete(), remove()            Session-   |
+                                                   |    |                                  Schluss    |
                                                    |    |                                             |
                                            clear() |    | update(), saveOrUpdate()                    |
-                                           evict() |    | refresh(), merge()                nach Session-Schluss  
-                                                   |    |                                             |
+                                           evict() |    | refresh(), merge()               wenn nicht wieder    
+                                                   |    |                                  angebracht(reattached)           
                                                    V    |                                             |
                                                   Detached -------------------------------------------+
                                 
@@ -170,13 +173,28 @@
         Wenn ein neues Java-Objekt aus einer Entität erstellt wird, hat dieses Objekt den Status "Transient".
         Es wird nicht von Hibernate verwaltet.
         
-    
    - Persistent:
     
-    
+        Wenn die Entity-Objekte mit den folgenden Methoden:(get, load, find, getSingleResult...) abgerufen werden, 
+        wird ein Objekt erhalten, das einem Datensatz in der Datenbank entspricht. Dieses Objekt hat einen permanenten
+        Status. Es wird von Hibernate verwaltet.
+        
    - Removed:
    
+        Das Session-Objekt ruft die Methode evict() oder clear() auf, um Objekte mit dem Status Persistent aus der
+        Hibernate-Verwaltung zu entfernen. Diese Objekte haben nun einen neuen Status mit dem Namen Detached. Wenn
+        es nicht erneut angehängt wird, wird es vom Java Garbage Gollector gemäß dem normalen Mechanismus entfernt.
+        
+        Mit einer der folgenden Methoden: update(), saveOrUpdate(), merge() nimmt ein Objekt mit dem Status Detached in
+        die Verwaltung von Hibernate auf. Dies entspricht der Aktion "Aktualisieren" oder "Einfügen" unter "Datenbank".
+        Das Objekt wechselt in den Persistent Zustand.
+         
    - Detached:
+   
+        Das Session-Objekt ruft die Methoden: remove(), delete() um ein Objekt zu löschen. Persistent Objekt wird auf 
+        den Removed Zustand wechseln.
+   
+         
    
 ### 9. Ziel (To Do)
 - Java-Projekt: KundenVerwaltung_Maven_JPA_MySQL bearbeiten
