@@ -19,8 +19,7 @@ class KundeTest {
 	private static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory("KundeUnit");
 
 	@Test
-	void updateKunde(Integer kundeId, String vorname, String nachname, String geburtsdatum, String adresse,
-			String telNr) {
+	void updateKunde() {
 		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		EntityTransaction entityTransaction = null;
 		Kunde existkunde = null;
@@ -31,17 +30,16 @@ class KundeTest {
 			Integer primaryKey = 2;
 			existkunde = entityManager.find(Kunde.class, primaryKey);
 
-			existkunde.setKundeId(kundeId);
+			existkunde.setKundeId(2);
 			Integer actual = existkunde.getKundeId();
 
-			existkunde.setVorname(vorname);
-			existkunde.setNachname(nachname);
-			existkunde.setGeburtsdatum(geburtsdatum);
-			existkunde.setAdresse(adresse);
-			existkunde.setTelNr(telNr);
+			existkunde.setAdresse("LandStr. 24");
+			existkunde.setTelNr("+4934872000");
 
-			Integer expected = kundeId;
-			assertEquals(expected, actual);  // JUnit Test
+			entityManager.merge(existkunde);
+
+			Integer expected = 2;
+			assertEquals(expected, actual); // JUnit Test
 		} catch (Exception e) {
 			if (entityTransaction != null)
 				entityTransaction.rollback();
