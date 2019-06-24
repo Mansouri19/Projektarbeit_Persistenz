@@ -39,6 +39,15 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 		this.nachname = nachname;
 	}
 
+	public Kunde(Integer kundeId, String vorname, String nachname, String geburtsdatum, String adresse, String telNr) {
+		this.kundeId = kundeId;
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.geburtsdatum = geburtsdatum;
+		this.adresse = adresse;
+		this.telNr = telNr;
+	}
+
 	public void setKundeId(Integer kundeId) {
 		this.kundeId = kundeId;
 	}
@@ -51,7 +60,6 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 	public void setVorname(String vorname) {
 //		if (!this.isTouched())
 //			this.markAsTouched((!this.vorname.equals(vorname)));
-
 		this.vorname = vorname;
 	}
 
@@ -64,7 +72,6 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 	public void setNachname(String nachname) {
 //		if (!this.isTouched())
 //			this.markAsTouched((!this.nachname.equals(nachname)));
-
 		this.nachname = nachname;
 	}
 
@@ -114,7 +121,7 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 
 	@Override
 	public String toString() {
-		return new StringBuilder("Kunde ID ").append(this.getID()).append(": ").append(this.getVorname()).append("  |")
+		return new StringBuilder("Kunde ID ").append(this.getID()).append(": ").append(this.getVorname()).append("  ")
 				.append(this.getNachname()).append("  |").append(this.getGeburtsdatum()).append("  |")
 				.append(this.getAdresse()).append("  |").append(this.getTelNr()).append("  / modifziert: ")
 				.append(this.isTouched()).toString();

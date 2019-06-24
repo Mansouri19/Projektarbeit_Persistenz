@@ -3,6 +3,7 @@ package development.project.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import development.project.KundenTest;
 import development.project.dao.model.Kunde;
 import development.project.persistent.KundenCache;
 
@@ -24,17 +25,10 @@ public final class KundenDAO {
 		return KundenCache.getInstance().get(id);
 	}
 
-	@SuppressWarnings("serial")
 	public List<Kunde> simulateIncomingKundenData() {
-		return new ArrayList<Kunde>() {
-			{
-				add(new Kunde("Hanne", "schmidt"));
-				add(new Kunde("steffen", "meier"));
-				add(new Kunde("hans", "Glück"));
-				add(new Kunde("Adam", "Smith"));
-				add(new Kunde("michael", "hofmann"));
-			}
-		};
+		
+		List<Kunde> incomingKunden = KundenTest.getKundenList();
+		return new ArrayList<Kunde>(incomingKunden) ;
 	}
 
 	public void storeList(List<Kunde> kunden) {

@@ -23,11 +23,16 @@ public class KundenTest {
 
 //		addKunde(1, "Adam", "Smith", "12.06.85", "GartenStr. 6", "+49881233");
 //		addKunde(2, "Hans", "Kaiser", "17.04.75", "HauptStr. 33", "+491712635");
-		getKundenList();
-		
-		FACTORY.close();
+//		addKunde(3, "Michael", "hofmann", "05.08.70", "NebentStr. 18", "+491432645");
+//		addKunde(4, "anna", "Müller", "05.03.82", "BahnhofStr. 39", "+491559273");
+//		addKunde(5, "lina", "close", "08.10.85", "EinheitStr. 140", "+495544778");
 
-//		kundentest();
+//		deleteKunde(5);
+//		getKundenList();
+
+		kundentest();
+
+		FACTORY.close();
 	}
 
 	public static void addKunde(Integer kundeId, String vorname, String nachname, String geburtsdatum, String adresse,
@@ -74,7 +79,7 @@ public class KundenTest {
 
 	}
 
-	public static void getKundenList() {
+	public static List<Kunde> getKundenList() {
 		EntityManager entityManager = FACTORY.createEntityManager();
 		String query = "SELECT k FROM Kunde k WHERE k.kundeId IS NOT NULL";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
@@ -82,12 +87,13 @@ public class KundenTest {
 		try {
 			kunden = tq.getResultList();
 			kunden.forEach(k -> System.out.println(k));
+			return kunden;
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		} finally {
 			entityManager.close();
 		}
-
+		return null;
 	}
 
 	public static void updateName(Integer kundeId, String vorname, String nachname) {
@@ -120,12 +126,13 @@ public class KundenTest {
 		try {
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			
-			entityManager.find(Kunde.class, kundeId);
+
+			kunde = entityManager.getReference(Kunde.class, kundeId);
 			entityManager.remove(kunde);
 
-			entityManager.persist(kunde);
+//			entityManager.persist(kunde); // Löschen nicht zulassen
 			entityTransaction.commit();
+
 		} catch (Exception e) {
 			if (entityTransaction != null)
 				entityTransaction.rollback();
@@ -135,8 +142,10 @@ public class KundenTest {
 		}
 	}
 
-// ------------------------------------
+	
+// -----------------------------------------------------------------------------------------------
 	private static void kundentest() {
+		System.out.println("##########################################################################################");
 		List<Kunde> kundenListeOriginal = DAOFactory.getKundenDAO().simulateIncomingKundenData();
 
 		System.out.println("Frisch hereingekommene Kundendaten:\n-----");
