@@ -64,9 +64,9 @@ public class KundenManagerDemo {
 		Query query = entityManager.createQuery(jpql);
 		
 		@SuppressWarnings("unchecked")
-		List<KundeDemo> listBooks = query.getResultList();
+		List<KundeDemo> listKunden = query.getResultList();
 		
-		for (KundeDemo aKunde : listBooks) {
+		for (KundeDemo aKunde : listKunden) {
 			System.out.println(aKunde.getKundeNachname() + ", "+ aKunde.getKundeVorname() + ", " + aKunde.getKundeAlter()
 			+ aKunde.getKundeAbteilung());
 		}
