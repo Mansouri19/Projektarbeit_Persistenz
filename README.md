@@ -223,7 +223,7 @@
     -> In Eclipse > window > Show View > Other > Problems
 
     - Java compiler level does not match the version of the installed Java project facet
-    -> Can you do it: - Right-click on your project - Click Properties - Click the "Project Facets" option on the left
+    -> Right-click on your project - Click Properties - Click the "Project Facets" option on the left
        menu - Under Facets section "Java" on the right, change it to  "1.8" or your version... - Click Ok
                    
 

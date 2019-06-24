@@ -18,23 +18,25 @@ class KundeTest {
 	private static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory("KundeUnit");
 
 	@Test
-	public static List<Kunde> getKundenList() {
+	void getKundenList() {
 		EntityManager entityManager = EM_FACTORY.createEntityManager();
+		entityManager.getTransaction().begin();
 		String query = "SELECT k FROM Kunde k WHERE k.kundeId < 3";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
 		List<Kunde> kunden;
 		try {
 			kunden = tq.getResultList();
-			kunden.forEach(k -> System.out.println(k));
-			return kunden;
+			kunden.forEach(k -> {
+				System.out.println(k);
+				assertTrue(k.getKundeId() > 7);
+			});
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		} finally {
 			entityManager.close();
 		}
-		return null;
 	}
-	
+
 	@AfterAll
 	static void end() {
 		EM_FACTORY.close();
