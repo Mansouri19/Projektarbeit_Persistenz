@@ -28,9 +28,9 @@ public class KundenTest {
 //		addKunde(5, "lina", "close", "08.10.85", "EinheitStr. 140", "+495544778");
 
 //		deleteKunde(5);
-//		getKundenList();
+		getKundenList();
 
-		kundentest();
+//		kundentest();
 
 		FACTORY.close();
 	}
@@ -50,6 +50,8 @@ public class KundenTest {
 			neukunde.setGeburtsdatum(geburtsdatum);
 			neukunde.setAdresse(adresse);
 			neukunde.setTelNr(telNr);
+
+			KundenBearbeitung.correctName(neukunde);
 
 			entityManager.persist(neukunde);
 			entityTransaction.commit();
@@ -142,10 +144,10 @@ public class KundenTest {
 		}
 	}
 
-	
 // -----------------------------------------------------------------------------------------------
 	private static void kundentest() {
-		System.out.println("##########################################################################################");
+		System.out
+				.println("##########################################################################################");
 		List<Kunde> kundenListeOriginal = DAOFactory.getKundenDAO().simulateIncomingKundenData();
 
 		System.out.println("Frisch hereingekommene Kundendaten:\n-----");

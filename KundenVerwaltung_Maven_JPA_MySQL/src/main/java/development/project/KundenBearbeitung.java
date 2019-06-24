@@ -16,4 +16,14 @@ public abstract class KundenBearbeitung {
 		return kunden;
 	}
 
+	public static Kunde correctName(Kunde k) {
+
+		k.setVorname(new StringBuilder(k.getVorname())
+				.replace(0, 1, String.valueOf(k.getVorname().charAt(0)).toUpperCase()).toString());
+		k.setNachname(new StringBuilder(k.getNachname())
+				.replace(0, 1, String.valueOf(k.getNachname().charAt(0)).toUpperCase()).toString());
+
+		return k;
+	}
+
 }
