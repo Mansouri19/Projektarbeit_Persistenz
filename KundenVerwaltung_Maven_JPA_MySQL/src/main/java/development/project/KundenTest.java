@@ -17,7 +17,7 @@ import kunden.lib.CommonLib;
 
 public class KundenTest {
 
-	private static EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("KundeUnit");
+	private static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory("KundeUnit");
 
 	public static void main(String[] args) {
 
@@ -32,12 +32,12 @@ public class KundenTest {
 
 //		kundentest();
 
-		FACTORY.close();
+		EM_FACTORY.close();
 	}
 
 	public static void addKunde(Integer kundeId, String vorname, String nachname, String geburtsdatum, String adresse,
 			String telNr) {
-		EntityManager entityManager = FACTORY.createEntityManager();
+		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		EntityTransaction entityTransaction = null;
 		try {
 			entityTransaction = entityManager.getTransaction();
@@ -65,7 +65,7 @@ public class KundenTest {
 	}
 
 	public static void getKunde(Integer kundeId) {
-		EntityManager entityManager = FACTORY.createEntityManager();
+		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		String query = "SELECT k FROM Kunde k WHERE k.kundeId = : kunde_id";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
 		tq.setParameter("kunde_id", kundeId);
@@ -82,7 +82,7 @@ public class KundenTest {
 	}
 
 	public static List<Kunde> getKundenList() {
-		EntityManager entityManager = FACTORY.createEntityManager();
+		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		String query = "SELECT k FROM Kunde k WHERE k.kundeId < 3";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
 		List<Kunde> kunden;
@@ -100,7 +100,7 @@ public class KundenTest {
 
 	public static void updateKunde(Integer kundeId, String vorname, String nachname, String geburtsdatum,
 			String adresse, String telNr) {
-		EntityManager entityManager = FACTORY.createEntityManager();
+		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		EntityTransaction entityTransaction = null;
 		Kunde existkunde = null;
 
@@ -126,7 +126,7 @@ public class KundenTest {
 	}
 
 	public static void deleteKunde(Integer kundeId) {
-		EntityManager entityManager = FACTORY.createEntityManager();
+		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		EntityTransaction entityTransaction = null;
 		Kunde kunde = null;
 		try {
