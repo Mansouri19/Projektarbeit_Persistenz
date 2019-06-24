@@ -107,11 +107,13 @@ public class KundenTest {
 		try {
 			entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
-			existkunde = entityManager.find(Kunde.class, kundeId);
+			Integer primaryKey = 2;
+			existkunde = entityManager.find(Kunde.class, primaryKey);
+			existkunde.setKundeId(kundeId);
 			existkunde.setVorname(vorname);
 			existkunde.setNachname(nachname);
 			existkunde.setGeburtsdatum(geburtsdatum);
-			existkunde.getAdresse();
+			existkunde.setAdresse(adresse);
 			existkunde.setTelNr(telNr);
 
 			entityManager.persist(existkunde);
