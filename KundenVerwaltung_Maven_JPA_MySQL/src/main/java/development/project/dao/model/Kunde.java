@@ -30,6 +30,7 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 
 	private String adresse;
 	private String telNr;
+//	private byte[] bild;
 
 	public Kunde() {
 	}
