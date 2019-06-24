@@ -83,7 +83,7 @@ public class KundenTest {
 
 	public static List<Kunde> getKundenList() {
 		EntityManager entityManager = FACTORY.createEntityManager();
-		String query = "SELECT k FROM Kunde k WHERE k.kundeId IS NOT NULL";
+		String query = "SELECT k FROM Kunde k WHERE k.kundeId < 3";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
 		List<Kunde> kunden;
 		try {
@@ -98,7 +98,8 @@ public class KundenTest {
 		return null;
 	}
 
-	public static void updateName(Integer kundeId, String vorname, String nachname) {
+	public static void updateKunde(Integer kundeId, String vorname, String nachname, String geburtsdatum,
+			String adresse, String telNr) {
 		EntityManager entityManager = FACTORY.createEntityManager();
 		EntityTransaction entityTransaction = null;
 		Kunde existkunde = null;
@@ -109,6 +110,9 @@ public class KundenTest {
 			existkunde = entityManager.find(Kunde.class, kundeId);
 			existkunde.setVorname(vorname);
 			existkunde.setNachname(nachname);
+			existkunde.setGeburtsdatum(geburtsdatum);
+			existkunde.getAdresse();
+			existkunde.setTelNr(telNr);
 
 			entityManager.persist(existkunde);
 			entityTransaction.commit();
