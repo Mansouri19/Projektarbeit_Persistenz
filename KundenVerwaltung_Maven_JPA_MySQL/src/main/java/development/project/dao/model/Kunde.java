@@ -114,8 +114,10 @@ public class Kunde extends BasicDTO implements Serializable, Cloneable, KundeInt
 
 	@Override
 	public String toString() {
-		return new StringBuilder("Kunde ID ").append(this.getID()).append(": ").append(this.getVorname()).append(" ")
-				.append(this.getNachname()).append(" / modifziert: ").append(this.isTouched()).toString();
+		return new StringBuilder("Kunde ID ").append(this.getID()).append(": ").append(this.getVorname()).append("  |")
+				.append(this.getNachname()).append("  |").append(this.getGeburtsdatum()).append("  |")
+				.append(this.getAdresse()).append("  |").append(this.getTelNr()).append("  / modifziert: ")
+				.append(this.isTouched()).toString();
 	}
 
 }
