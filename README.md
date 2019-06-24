@@ -28,8 +28,19 @@
 - Hibernate verwendet Hibernate Query Language (HQL) zum Abfragen von Daten.
 
 ### 2.	Eine MySQL Datenbank erstellen
-- Datenbank Name:
-- Tabelle Name:
+- Datenbank erstellen: create database kundenverwaltungdb
+     - Tabelle erzeugen: SELECT * FROM kundenverwaltungdb.kunde;
+
+      Beispiel: 
+                CREATE TABLE `kunde` (
+                 `kunde_id` int(11) NOT NULL,
+                 `vorname` varchar(64) NOT NULL,
+                 `nachname` varchar(128) NOT NULL,
+                 `geburtsdatum` varchar(64) NOT NULL,
+                 `adresse` varchar(128) NOT NULL,
+                 `telNr` varchar(64) NOT NULL,
+                 PRIMARY KEY (`kunde_id`)
+                )
 
 ### 3. Java Maven Project in Eclipse einrichten 
 - Maven Projekt erstellen: In Eclipse File -> new -> Maven Project
