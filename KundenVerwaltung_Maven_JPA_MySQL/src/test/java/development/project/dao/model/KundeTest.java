@@ -27,14 +27,13 @@ class KundeTest {
 		entityTransaction.begin();
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	void updateKunde() {
 		EntityTransaction entityTransaction = null;
 		Kunde existkunde = null;
 
 		try {
-			entityTransaction = entityManager.getTransaction();
-			entityTransaction.begin();
 			Integer primaryKey = 2;
 			existkunde = entityManager.find(Kunde.class, primaryKey);
 
@@ -59,8 +58,6 @@ class KundeTest {
 
 	@Test
 	void getKundenList() {
-		EntityManager entityManager = EM_FACTORY.createEntityManager();
-		entityManager.getTransaction().begin();
 		String query = "SELECT k FROM Kunde k WHERE k.kundeId < 3";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
 		List<Kunde> kunden;
