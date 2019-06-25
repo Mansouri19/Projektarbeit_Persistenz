@@ -1,15 +1,19 @@
 package development.project.app_javafx;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import development.project.KundenTest;
 import development.project.dao.model.Kunde;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
 public class MainController {
@@ -82,6 +86,15 @@ public class MainController {
 	private void setStatusError(String error) {
 		status_label.setTextFill(Color.RED);
 		status_label.setText(error);
+	}
+	
+	private boolean getConfirmation(String header, String text) {
+		Alert alert = new Alert(AlertType.CONFIRMATION); // Controlsfx
+		alert.setTitle("Bestätigung");
+		alert.setHeaderText(header);
+		alert.setContentText(text);
+		Optional<ButtonType> result = alert.showAndWait();
+		return result.get() == ButtonType.OK;
 	}
 
 }
