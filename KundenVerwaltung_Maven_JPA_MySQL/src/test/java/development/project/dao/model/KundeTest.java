@@ -62,8 +62,6 @@ class KundeTest {
 				System.out.println(k);
 				assertTrue(k.getKundeId() > 7); // JUnit Test
 			});
-		} catch (NoResultException e) {
-			e.printStackTrace();
 		} finally {
 			entityManager.close();
 		}
