@@ -83,7 +83,7 @@ public class KundenTest {
 
 	public static List<Kunde> getKundenList() {
 		EntityManager entityManager = EM_FACTORY.createEntityManager();
-		String query = "SELECT k FROM Kunde k WHERE k.kundeId < 3";
+		String query = "SELECT k FROM Kunde k WHERE k.kundeId != 0";
 		TypedQuery<Kunde> tq = entityManager.createQuery(query, Kunde.class);
 		List<Kunde> kunden;
 		try {
