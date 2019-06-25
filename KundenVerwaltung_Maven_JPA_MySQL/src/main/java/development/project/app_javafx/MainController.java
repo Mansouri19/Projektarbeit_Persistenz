@@ -3,6 +3,8 @@ package development.project.app_javafx;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import javax.swing.JOptionPane;
+
 import development.project.KundenTest;
 import development.project.dao.model.Kunde;
 import javafx.event.ActionEvent;
@@ -18,7 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
 public class MainController {
-	
+
 	KundenTest kundenTest = new KundenTest();
 	@FXML
 	private TextField kundenId_tf;
@@ -39,13 +41,21 @@ public class MainController {
 	private DatePicker geburtsdatum_tf;
 
 	@FXML
-    private TableView<?> kundenList_TableView;
+	private TableView<?> kundenList_TableView;
 
 	@FXML
 	private Label status_label;
 
 	@FXML
 	void OnKundeAdd(ActionEvent event) {
+		if (checkEingabe()) {
+			KundenTest.addKunde(Integer.parseInt(kundenId_tf.getText()), vorname_tf.getText(), nachname_tf.getText(),
+					geburtsdatum_tf.toString(), adresse_tf.getText(), telNr_tf.getText());
+
+		} else {
+
+			JOptionPane.showMessageDialog(null, "Bitte ergänzen Sie die Eingabe !");
+		}
 
 	}
 
@@ -66,14 +76,14 @@ public class MainController {
 	}
 
 	private void updateGuiFrom(Kunde kunde) {
-		kundenId_tf.setText(kunde.getGeburtsdatum());
+		kundenId_tf.setText(null);
 		vorname_tf.setText(kunde.getVorname());
 		nachname_tf.setText(kunde.getNachname());
 		geburtsdatum_tf.setValue(null);
 		adresse_tf.setText(kunde.getAdresse());
-		telNr_tf.setText(kunde.getTelNr());		
+		telNr_tf.setText(kunde.getTelNr());
 	}
-	
+
 	private void clearStatusText() {
 		status_label.setText("");
 	}
@@ -87,7 +97,7 @@ public class MainController {
 		status_label.setTextFill(Color.RED);
 		status_label.setText(error);
 	}
-	
+
 	private boolean getConfirmation(String header, String text) {
 		Alert alert = new Alert(AlertType.CONFIRMATION); // Controlsfx
 		alert.setTitle("Bestätigung");
@@ -95,6 +105,16 @@ public class MainController {
 		alert.setContentText(text);
 		Optional<ButtonType> result = alert.showAndWait();
 		return result.get() == ButtonType.OK;
+	}
+
+	private boolean checkEingabe() {
+		if (kundenId_tf == null || vorname_tf == null || nachname_tf == null || geburtsdatum_tf == null
+				|| adresse_tf == null || telNr_tf == null) {
+			return false;
+		} else {
+			return true;
+		}
+
 	}
 
 }
