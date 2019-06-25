@@ -55,7 +55,7 @@ public class MainController {
 
 	@FXML
 	void OnKundeReset(ActionEvent event) {
-		Kunde kunde = new Kunde(0, "", "", "", "", "");
+		Kunde kunde = new Kunde(null, "", "", "", "", "");
 		updateGuiFrom(kunde);
 	}
 
@@ -65,13 +65,12 @@ public class MainController {
 	}
 
 	private void updateGuiFrom(Kunde kunde) {
-		kundenId_tf.setText(String.valueOf(kunde.getKundeId()));
+		kundenId_tf.setText(kunde.getGeburtsdatum());
 		vorname_tf.setText(kunde.getVorname());
 		nachname_tf.setText(kunde.getNachname());
-//		geburtsdatum_tf.
+		geburtsdatum_tf.setValue(null);
 		adresse_tf.setText(kunde.getAdresse());
-		telNr_tf.setText(kunde.getTelNr());
-		
+		telNr_tf.setText(kunde.getTelNr());		
 	}
 	
 	private void clearStatusText() {
