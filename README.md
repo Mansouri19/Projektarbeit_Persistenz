@@ -162,7 +162,8 @@
    - Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
      -  Session Klasse von Hibernate verfügt über einige wichtige Methoden, die in Gruppen eingeteilt sind (siehe
         Diagramm daunten).
-        
+   ![Folie1](https://user-images.githubusercontent.com/51742585/60084303-8ad94100-9737-11e9-829c-7792372f22e2.PNG)
+   
                                                       +---------+
                       +------------------------------>|Transient|------------------------------------------------+
                       |           new                 +---------+                                                |
