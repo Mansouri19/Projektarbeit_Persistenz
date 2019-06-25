@@ -56,12 +56,12 @@
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="147.0" style="-fx-font-size: 16;" text="Adresse:" GridPane.rowIndex="5" />
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="146.0" style="-fx-font-size: 16;" text="Tel - Nr. :" GridPane.rowIndex="6" />
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="33.0" prefWidth="248.0" style="-fx-font-size: 18;" text="Kundendaten" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="52.0" prefWidth="346.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                                    <TextField prefHeight="59.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <TextField prefHeight="50.0" prefWidth="304.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField prefHeight="50.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <TextField prefHeight="49.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <DatePicker prefHeight="47.0" prefWidth="347.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="kundenId_tf" prefHeight="52.0" prefWidth="346.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                                    <TextField fx:id="vorname_tf" prefHeight="59.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="nachname_tf" prefHeight="50.0" prefWidth="304.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="adresse_tf" prefHeight="50.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField fx:id="telNr_tf" prefHeight="49.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <DatePicker fx:id="geburtsdatum_tf" prefHeight="47.0" prefWidth="347.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
                               <HBox prefHeight="127.0" prefWidth="492.0">
@@ -97,7 +97,7 @@
                      <children>
                         <VBox layoutY="4.0" prefHeight="657.0" prefWidth="697.0">
                            <children>
-                              <ListView prefHeight="629.0" prefWidth="690.0" />
+                              <ListView fx:id="kundenList_listView" prefHeight="629.0" prefWidth="690.0" />
                               <HBox prefHeight="38.0" prefWidth="712.0" />
                            </children>
                         </VBox>
@@ -107,7 +107,7 @@
             </SplitPane>
             <HBox prefHeight="61.0" prefWidth="1148.0">
                <children>
-                  <Label prefHeight="61.0" prefWidth="104.0" style="-fx-font-size: 16;" text="Status" />
+                  <Label fx:id="status_label" prefHeight="61.0" prefWidth="104.0" style="-fx-font-size: 16;" text="Status" />
                </children>
             </HBox>
          </children>
