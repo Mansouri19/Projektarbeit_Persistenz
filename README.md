@@ -158,7 +158,7 @@
      - Close die EntityManager
      - Close die EntityManagerFactory
    
-### 8. Hibernate Lifeziklus und CRUD Methoden  
+### 8. Hibernate Lebenszyklus und CRUD Methoden  
    - Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
      -  Session Klasse von Hibernate verfügt über einige wichtige Methoden, die in Gruppen eingeteilt sind (siehe
         Diagramm daunten).
