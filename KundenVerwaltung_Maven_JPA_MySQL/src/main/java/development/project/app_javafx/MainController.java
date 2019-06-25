@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
@@ -38,7 +39,7 @@ public class MainController {
 	private DatePicker geburtsdatum_tf;
 
 	@FXML
-	private ListView<?> kundenList_listView;
+    private TableView<?> kundenList_TableView;
 
 	@FXML
 	private Label status_label;
