@@ -2,6 +2,7 @@ package development.project.app_javafx;
 
 import java.time.format.DateTimeFormatter;
 
+import development.project.KundenTest;
 import development.project.dao.model.Kunde;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,8 +10,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class MainController {
+	
+	KundenTest kundenTest = new KundenTest();
 	@FXML
 	private TextField kundenId_tf;
 
@@ -47,7 +51,7 @@ public class MainController {
 
 	@FXML
 	void OnKundeReset(ActionEvent event) {
-		Kunde kunde = new Kunde(null, "", "", "", "", "");
+		Kunde kunde = new Kunde(0, "", "", "", "", "");
 		updateGuiFrom(kunde);
 	}
 
@@ -64,6 +68,20 @@ public class MainController {
 		adresse_tf.setText(kunde.getAdresse());
 		telNr_tf.setText(kunde.getTelNr());
 		
+	}
+	
+	private void clearStatusText() {
+		status_label.setText("");
+	}
+
+	private void setStatusInfo(String info) {
+		status_label.setTextFill(Color.GREEN);
+		status_label.setText(info);
+	}
+
+	private void setStatusError(String error) {
+		status_label.setTextFill(Color.RED);
+		status_label.setText(error);
 	}
 
 }

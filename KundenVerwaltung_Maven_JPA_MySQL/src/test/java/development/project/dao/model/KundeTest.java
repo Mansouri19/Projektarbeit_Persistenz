@@ -12,15 +12,23 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class KundeTest {
 
 	private static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory("KundeUnit");
+	EntityManager entityManager = EM_FACTORY.createEntityManager();
+	
+	@BeforeEach
+	private void begin() {
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+	}
 
 	@Test
 	void updateKunde() {
-		EntityManager entityManager = EM_FACTORY.createEntityManager();
 		EntityTransaction entityTransaction = null;
 		Kunde existkunde = null;
 
