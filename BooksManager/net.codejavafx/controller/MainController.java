@@ -124,7 +124,7 @@ public class MainController {
 	}
 
 	@FXML
-	void onBookCreate(ActionEvent event) { // Vorlage für alle Aufgaben
+	void onBookCreate(ActionEvent event) { 
 
 		Book book = getBookFromGui();
 
