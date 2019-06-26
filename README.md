@@ -163,7 +163,7 @@
      -  Session Klasse von Hibernate verfügt über einige wichtige Methoden, die in Gruppen eingeteilt sind (siehe
         Diagramm daunten).	
 	
-   
+   ![](Diagramme/Hibernate_Lifecycle.PNG)
 						
    - Transient:
     
