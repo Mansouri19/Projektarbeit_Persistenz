@@ -2,6 +2,9 @@ package controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -18,9 +21,7 @@ import model.BookService;
 
 public class MainController {
 	private BookService bookService;
-	// ########################################################################
-	// # Tab: "Neu" #
-	// ########################################################################
+
 	@FXML
 	private TextField title_tf;
 	@FXML
@@ -38,19 +39,14 @@ public class MainController {
 	@FXML
 	private Button fillData3_btn;
 
-	// ########################################################################
-	// # Tab: "Bücherliste" #
-	// ########################################################################
 	@FXML
 	private ListView<Book> bookList_listView;
-	// ########################################################################
+
 	@FXML
 	private Label status_label;
 
-	// ########################################################################
-	// ########################################################################
 	@FXML
-	void onBookListClick(Event event) { // Event und nicht ActionEvent !!!
+	void onBookListClick(Event event) {
 		clearStatusText();
 		Book selectedBook = getSelectedBook();
 		if (selectedBook != null) {
@@ -64,19 +60,19 @@ public class MainController {
 
 	@FXML
 	void onBookUpdate(ActionEvent event) {
-		// 1. Benutzereingabe auswerten
+
 		Book selectedBook = getSelectedBook();
 		if (selectedBook == null) {
 			setStatusError("Bitte ein Buch auswählen");
 			return;
 		}
-		Book book = getBookFromGui(); // neue Daten holen (ohne id)
+		Book book = getBookFromGui();
 		Long id = getSelectedBook().getId();
 		book.setId(id);
-		// 2. Modell aufrufen
-		bookService.update(book); // hier wird die "echte" BookList aktualisiert
-		// 3. View aktualisieren
-		setStatusInfo("Das Buch wurde aktualisiert"); // TODO listview einfach aktualieren
+
+		bookService.update(book);
+
+		setStatusInfo("Das Buch wurde aktualisiert");
 		int index = bookList_listView.getSelectionModel().getSelectedIndex();
 		bookList_listView.getItems().set(index, book);
 	}
@@ -84,44 +80,36 @@ public class MainController {
 	@FXML
 	void onBookDelete(ActionEvent event) {
 		clearStatusText();
-		// 1. Benutzereingabe auslesen usw.
+
 		Book selectedBook = getSelectedBook();
 		if (selectedBook == null) {
 			setStatusError("Bitte ein Buch auswählen");
 			return;
 		}
 		if (getConfirmation("Ein Buch wird aus der Liste unwiderruflich entfernt:", "Sind Sie einverstanden?")) {
-			// 2. Modell aufrufen
+
 			bookService.delete(selectedBook);
-			// 3. View aktualisieren
-			bookList_listView.getItems().remove(selectedBook); // Aus der Grafik entfernen
+
+			bookList_listView.getItems().remove(selectedBook);
 			setStatusInfo("Das Buch [" + selectedBook.getTitle() + "] wurde gelöscht.");
 		}
 	}
 
-	private void onBookList() { // Wird von der initialize()-Methode ausgeführt
+	private void onBookList() {
 		clearStatusText();
 		System.out.println("==> Tab aktiviert!!!");
-		// 1. Benutzereingabe auswerten, konvertieren, validieren und passende Objekte
-		// bilden
-		// Nichts zu tun
-		// 2. Modell aufrufen
+
 		List<Book> bookList = bookService.getBookList();
-		// 3. View aktualisieren
+
 		bookList_listView.getItems().setAll(bookList);
 	}
 
-	// ########################################################################
 	@FXML
 	void fillData(ActionEvent event) {
 		Button clicked = (Button) event.getSource();
-		Book book;
+		Book book = null;
 		if (isButton(fillData1_btn, clicked)) {
 			book = getBook1();
-		} else if (isButton(fillData2_btn, clicked)) {
-			book = getBook2();
-		} else { // "3" wurde geklickt
-			book = getBook3();
 		}
 		updateGuiFrom(book);
 	}
@@ -135,35 +123,17 @@ public class MainController {
 				"2011");
 	}
 
-	private Book getBook2() {
-		return new Book("Professionell entwickeln mit Java EE 7", "Rheinwerk Computing", "978-3-8362-2004-0",
-				"Alexander Salvanos", "2014");
-	}
-
-	private Book getBook3() {
-		return new Book("OCEJWCD Study Companion", "Garner Press", "978-0955160349", "Charles Lyons",
-				"15. August 2012");
-	}
-
 	@FXML
 	void onBookCreate(ActionEvent event) { // Vorlage für alle Aufgaben
-		// ###############################################################
-		// # 1. Aufgaben der Controller-Schicht:
-		// # Benutzereingabe auswerten, konvertieren, validieren
-		// # und passende Objekte bilden
-		// ###############################################################
+
 		Book book = getBookFromGui();
-		// ###############################################################
-		// # 2. Model-Komponente aufrufen
-		// ###############################################################
+
 		bookService.create(book);
-		// ###############################################################
-		// # 3. View-Komponente aufrufen
-		// ###############################################################
-		System.out.println(bookService.getBookList()); // Debugging
-//	    JOptionPane.showMessageDialog(null, "Buch wurde angelegt");
-		bookList_listView.getItems().add(book); // Buch zur View hinzufügen
-		bookList_listView.getSelectionModel().select(book); // Buch in der ListView selektieren
+
+		System.out.println(bookService.getBookList());
+		JOptionPane.showMessageDialog(null, "Buch wurde angelegt");
+		bookList_listView.getItems().add(book);
+		bookList_listView.getSelectionModel().select(book);
 		setStatusInfo("Das Buch [" + book.getTitle() + "] wurde angelegt.");
 	}
 

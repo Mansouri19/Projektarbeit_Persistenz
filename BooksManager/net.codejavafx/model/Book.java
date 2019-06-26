@@ -14,7 +14,6 @@ public class Book {
 	}
 
 	public Book(String title, String publisher, String isbn, String author, String date) {
-		this.id = id;
 		this.title = title;
 		this.publisher = publisher;
 		this.isbn = isbn;
