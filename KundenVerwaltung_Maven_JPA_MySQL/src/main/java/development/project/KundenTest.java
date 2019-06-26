@@ -152,8 +152,7 @@ public class KundenTest {
 
 // -----------------------------------------------------------------------------------------------
 	private static void kundentest() {
-		System.out
-				.println("##########################################################################################");
+		System.out.println("###############################################################################");
 		List<Kunde> kundenListeOriginal = DAOFactory.getKundenDAO().simulateIncomingKundenData();
 
 		System.out.println("Frisch hereingekommene Kundendaten:\n-----");

@@ -39,7 +39,7 @@ public final class KundenDAO {
 
 			if (isTouched) {
 				System.out.println(
-						new StringBuilder("Speichere Kunden in DB: ").append(this.retrieveKundeByDTOId(k.getID())));
+						new StringBuilder("Speichere Kunden in Datenbank: ").append(this.retrieveKundeByDTOId(k.getID())));
 			}
 		}
 	}
