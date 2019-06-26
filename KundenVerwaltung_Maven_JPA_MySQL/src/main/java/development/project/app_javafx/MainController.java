@@ -92,19 +92,22 @@ public class MainController {
 	}
 
 	public void showList() {
-	
+		List<Kunde> list = KundenTest.getKundenList();
+		ObservableList<Kunde> data = FXCollections.observableArrayList(list);
+		
+		kundenList_TableView.setItems(data);
 
-//		Object[] row = new Object[6];
-//		for (int i = 0; i < list.size(); i++) {
-//			row[0] = list.get(i).getKundeId();
-//			row[0] = list.get(i).getVorname();
-//			row[0] = list.get(i).getNachname();
-//			row[0] = list.get(i).getGeburtsdatum();
-//			row[0] = list.get(i).getAdresse();
-//			row[0] = list.get(i).getTelNr();
-//
-//			data.addAll((Kunde[]) row);
-//		}
+		Object[] row = new Object[6];
+		for (int i = 0; i < list.size(); i++) {
+			row[0] = list.get(i).getKundeId();
+			row[0] = list.get(i).getVorname();
+			row[0] = list.get(i).getNachname();
+			row[0] = list.get(i).getGeburtsdatum();
+			row[0] = list.get(i).getAdresse();
+			row[0] = list.get(i).getTelNr();
+
+			data.addAll((Kunde[]) row);
+		}
 	}
 
 	@FXML

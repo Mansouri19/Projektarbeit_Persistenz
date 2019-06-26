@@ -194,7 +194,7 @@
          
    
 ### 9. Programmausführung
-##### - Java-Projekt: KundenVerwaltung_Maven_JPA_MySQL
+##### - Hauptprojekt: KundenVerwaltung_Maven_JPA_MySQL
 
    - Kunde in Datenbank einfügen, aktualisieren, löschen, finden ..
    - Erstelle Kopie der Original-Kunden-Liste zur Bearbeitung.
@@ -206,7 +206,10 @@
          \src\test\java\development\project\dao\model\KundeTest.java         
    - Kundeninformation mit Javafx anlegen
     
-         \src\main\java\development\project\app_javafx\Start.java        
+         \src\main\java\development\project\app_javafx\Start.java 
+                
+##### - Testprojekt (Optional): BooksManager
+
 ### 10. Tips
          - compiler error sign
          -> In Eclipse > window > Show View > Other > Problems
