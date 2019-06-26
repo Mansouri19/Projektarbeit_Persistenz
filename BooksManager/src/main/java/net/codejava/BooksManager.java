@@ -2,9 +2,6 @@ package net.codejava;
 
 import javax.persistence.Query;
 
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -38,7 +35,7 @@ public class BooksManager {
 		entityManager.getTransaction().begin();
 	}
 
-	private static void create() {
+	public static void create() {
 		Book newBook = new Book();
 		newBook.setTitle("Java 7 Das Übungsbuch");
 		newBook.setAuthor("Elisabeth Jung ");
@@ -46,7 +43,7 @@ public class BooksManager {
 		entityManager.persist(newBook);
 	}
 
-	private static void update() {
+	public static void update() {
 		Book existBook = new Book();
 		existBook.setBookId(6);
 		existBook.setTitle("Java SE 8 Programmer II");
@@ -55,7 +52,7 @@ public class BooksManager {
 		entityManager.merge(existBook);
 	}
 
-	private static void find() {
+	public static void find() {
 		Integer primaryKey = 2;
 		Book book = entityManager.find(Book.class, primaryKey);
 		System.out.println(book.getTitle());
@@ -63,8 +60,7 @@ public class BooksManager {
 		System.out.println(book.getPrice());
 	}
 
-	@Test
-	private static void query() {
+	public static List<Book> getBookList() {
 		String jpql = "Select b From Book b Where b.price < 40";
 		Query query = entityManager.createQuery(jpql);
 
@@ -75,10 +71,10 @@ public class BooksManager {
 			System.out.println(aBook.getTitle() + ", " + aBook.getAuthor() + ", " + aBook.getPrice());
 			assertTrue(aBook.getPrice() < 40);
 		}
-
+		return listBooks;
 	}
 
-	private static void remove() {
+	public static void remove() {
 		Integer primaryKey = 8;
 		Book reference = entityManager.getReference(Book.class, primaryKey);
 		entityManager.remove(reference);

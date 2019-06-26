@@ -16,31 +16,27 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import model.Book;
-import model.BookService;
+import net.codejava.*;
+import net.codejava.BooksManager;
 
 public class MainController {
-	private BookService bookService;
-
-	@FXML
-	private TextField title_tf;
-	@FXML
-	private TextField publisher_tf;
-	@FXML
-	private TextField isbn_tf;
-	@FXML
-	private TextField author_tf;
-	@FXML
-	private TextField date_tf;
-	@FXML
-	private Button fillData1_btn;
-	@FXML
-	private Button fillData2_btn;
-	@FXML
-	private Button fillData3_btn;
+	@SuppressWarnings("unused")
+	private BooksManager booksManager;
 
 	@FXML
 	private ListView<Book> bookList_listView;
+
+	@FXML
+	private TextField bookId_tf;
+
+	@FXML
+	private TextField title_tf;
+
+	@FXML
+	private TextField author_tf;
+
+	@FXML
+	private TextField preis_tf;
 
 	@FXML
 	private Label status_label;
@@ -67,10 +63,10 @@ public class MainController {
 			return;
 		}
 		Book book = getBookFromGui();
-		Long id = getSelectedBook().getId();
-		book.setId(id);
+		Integer id = getSelectedBook().getBookId();
+		book.setBookId(id);
 
-		bookService.update(book);
+		BooksManager.update();
 
 		setStatusInfo("Das Buch wurde aktualisiert");
 		int index = bookList_listView.getSelectionModel().getSelectedIndex();
@@ -88,7 +84,7 @@ public class MainController {
 		}
 		if (getConfirmation("Ein Buch wird aus der Liste unwiderruflich entfernt:", "Sind Sie einverstanden?")) {
 
-			bookService.delete(selectedBook);
+			BooksManager.remove();
 
 			bookList_listView.getItems().remove(selectedBook);
 			setStatusInfo("Das Buch [" + selectedBook.getTitle() + "] wurde gelöscht.");
@@ -99,38 +95,29 @@ public class MainController {
 		clearStatusText();
 		System.out.println("==> Tab aktiviert!!!");
 
-		List<Book> bookList = bookService.getBookList();
+		List<Book> bookList = BooksManager.getBookList();
 
 		bookList_listView.getItems().setAll(bookList);
 	}
 
-	@FXML
-	void fillData(ActionEvent event) {
-		Button clicked = (Button) event.getSource();
-		Book book = null;
-		if (isButton(fillData1_btn, clicked)) {
-			book = getBook1();
-		}
-		updateGuiFrom(book);
-	}
-
+	@SuppressWarnings("unused")
 	private boolean isButton(Button button, Button clicked) {
 		return button.getId().equals(clicked.getId());
 	}
 
+	@SuppressWarnings("unused")
 	private Book getBook1() {
-		return new Book("Java ist auch eine Insel", "Rheinwerk Computing", "978-3-8362-1802-3", "Christian Ullenboom",
-				"2011");
+		return new Book(1, "Rheinwerk Computing", "978-3-8362-1802-3", 50);
 	}
 
 	@FXML
-	void onBookCreate(ActionEvent event) { 
+	void onBookCreate(ActionEvent event) {
 
 		Book book = getBookFromGui();
 
-		bookService.create(book);
+		BooksManager.create();
 
-		System.out.println(bookService.getBookList());
+		System.out.println(BooksManager.getBookList());
 		JOptionPane.showMessageDialog(null, "Buch wurde angelegt");
 		bookList_listView.getItems().add(book);
 		bookList_listView.getSelectionModel().select(book);
@@ -139,14 +126,14 @@ public class MainController {
 
 	@FXML
 	void onBookReset(ActionEvent event) {
-		Book book = new Book("", "", "", "", "");
+		Book book = new Book(null, "", "", 0);
 		updateGuiFrom(book);
 	}
 
 	@FXML
 	void initialize() {
 		System.out.println("==> Starting the Book Management Application ...");
-		bookService = new BookService();
+		booksManager = new BooksManager();
 		clearStatusText();
 		onBookList();
 	}
@@ -166,7 +153,7 @@ public class MainController {
 	}
 
 	private boolean getConfirmation(String header, String text) {
-		Alert alert = new Alert(AlertType.CONFIRMATION); // Controlsfx
+		Alert alert = new Alert(AlertType.CONFIRMATION); 
 		alert.setTitle("Bestätigung");
 		alert.setHeaderText(header);
 		alert.setContentText(text);
@@ -176,18 +163,14 @@ public class MainController {
 
 	private void updateGuiFrom(Book book) {
 		title_tf.setText(book.getTitle());
-		publisher_tf.setText(book.getPublisher());
-		isbn_tf.setText(book.getIsbn());
 		author_tf.setText(book.getAuthor());
-		date_tf.setText(book.getDate());
 	}
 
 	private Book getBookFromGui() {
+		Integer id = Integer.parseInt(bookId_tf.getText());
 		String title = title_tf.getText();
-		String publisher = publisher_tf.getText();
-		String isbn = isbn_tf.getText();
 		String author = author_tf.getText();
-		String date = date_tf.getText();
-		return new Book(title, publisher, isbn, author, date);
+		float preis =  Float.parseFloat(preis_tf.getText());
+		return new Book(id, title, author, preis);
 	}
 }
