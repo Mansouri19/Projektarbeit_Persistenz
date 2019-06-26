@@ -7,7 +7,7 @@ public class Book {
 	private String title;
 	private String publisher;
 	private String isbn;
-	private String author; // Person author ???
+	private String author; 
 	private String date;
 
 	public Book() {
