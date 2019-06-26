@@ -204,7 +204,7 @@
    - Programm in JUnit testen   
    
          \src\test\java\development\project\dao\model\KundeTest.java         
-   - Kundeninformation mit Javafx anlegen
+   - Kundeninformation mit Javafx anlegen (Optional)
     
          \src\main\java\development\project\app_javafx\Start.java 
                 
