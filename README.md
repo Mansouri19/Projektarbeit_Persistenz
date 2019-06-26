@@ -161,7 +161,7 @@
 ### 8. Hibernate Lebenszyklus und CRUD Methoden  
    - Ein Objekt in Hibernate befindet sich in einem von vier Zuständen: Transient, Persistent, Removed oder Detached.
      -  Session Klasse von Hibernate verfügt über einige wichtige Methoden, die in Gruppen eingeteilt sind (siehe
-        Diagramm daunten).	
+        Projektarbeit_Persistenz\Diagramme\Hibernate_Lifecycle.PNG).	
 	
    ![](Diagramme/Hibernate_Lifecycle.PNG)
 						
