@@ -193,23 +193,27 @@
    
          
    
-### 9. Ziel (To Do)
-- Java-Projekt: KundenVerwaltung_Maven_JPA_MySQL bearbeiten
+### 9. Programmausführung
+##### - Java-Projekt: KundenVerwaltung_Maven_JPA_MySQL
 
-- Lifeziklus der Java-Objekte überprüfen
-
-      - siehe KundenVerwaltung_Maven_JPA_MySQL[Projectarbeit_Persistenz master]
-      - Testprogramm (BooksManager) Schritte folgen 
-  
+   - Kunde in Datenbank einfügen, aktualisieren, löschen, finden ..
+   - Erstelle Kopie der Original-Kunden-Liste zur Bearbeitung.
+   - Lifeziklus der Java-Objekte überprüfen.
    
-      
+         \src\main\java\development\project\KundenTest.java     
+   - Programm in JUnit testen   
+   
+         \src\test\java\development\project\dao\model\KundeTest.java         
+   - Kundeninformation mit Javafx anlegen
+    
+         \src\main\java\development\project\app_javafx\Start.java        
 ### 10. Tips
-    - compiler error sign
-    -> In Eclipse > window > Show View > Other > Problems
+         - compiler error sign
+         -> In Eclipse > window > Show View > Other > Problems
 
-    - Java compiler level does not match the version of the installed Java project facet
-    -> Right-click on your project - Click Properties - Click the "Project Facets" option on the left
-       menu - Under Facets section "Java" on the right, change it to  "1.8" or your version... - Click Ok
+         - Java compiler level does not match the version of the installed Java project facet
+         -> Right-click on your project - Click Properties - Click the "Project Facets" option on the left
+            menu - Under Facets section "Java" on the right, change it to  "1.8" or your version... - Click Ok
                    
 
 
