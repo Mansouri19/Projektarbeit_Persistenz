@@ -2,6 +2,7 @@ package development.project.app_javafx;
 
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,10 @@ import javax.swing.table.DefaultTableModel;
 
 import development.project.KundenTest;
 import development.project.dao.model.Kunde;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.ObjectPropertyBase;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +23,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -45,7 +51,25 @@ public class MainController {
 	private DatePicker geburtsdatum_tf;
 
 	@FXML
-	private TableView<Kunde> kundenList_TableView = new TableView<Kunde>();
+	private TableView<Kunde> kundenList_TableView;
+
+	@FXML
+	private TableColumn<Kunde, Integer> idColumn;
+
+	@FXML
+	private TableColumn<Kunde, String> vornameColumn;
+
+	@FXML
+	private TableColumn<Kunde, String> nachnameColumn;
+
+	@FXML
+	private TableColumn<Kunde, Date> gebDColumn;
+
+	@FXML
+	private TableColumn<Kunde, String> adresseColumn;
+
+	@FXML
+	private TableColumn<Kunde, String> telNrColumn;
 
 	@FXML
 	private Label status_label;
@@ -58,7 +82,7 @@ public class MainController {
 					kunde.getAdresse(), kunde.getTelNr());
 
 			JOptionPane.showMessageDialog(null, "Kunde wurde angelegt");
-			showList();
+//			showList();
 			setStatusInfo("Kunde wurde angelegt");
 
 		} else {
@@ -68,20 +92,19 @@ public class MainController {
 	}
 
 	public void showList() {
-		List<Kunde> list = KundenTest.getKundenList();
-		ObservableList<Kunde> data = FXCollections.observableArrayList(list);
-//	    kundenList_TableView.setItems(data);
-		Object[] row = new Object[6];
-		for (int i = 0; i < list.size(); i++) {
-			row[0] = list.get(i).getKundeId();
-			row[0] = list.get(i).getVorname();
-			row[0] = list.get(i).getNachname();
-			row[0] = list.get(i).getGeburtsdatum();
-			row[0] = list.get(i).getAdresse();
-			row[0] = list.get(i).getTelNr();
+	
 
-			data.addAll((Kunde[]) row);
-		}
+//		Object[] row = new Object[6];
+//		for (int i = 0; i < list.size(); i++) {
+//			row[0] = list.get(i).getKundeId();
+//			row[0] = list.get(i).getVorname();
+//			row[0] = list.get(i).getNachname();
+//			row[0] = list.get(i).getGeburtsdatum();
+//			row[0] = list.get(i).getAdresse();
+//			row[0] = list.get(i).getTelNr();
+//
+//			data.addAll((Kunde[]) row);
+//		}
 	}
 
 	@FXML
@@ -113,7 +136,7 @@ public class MainController {
 		Integer kundeId = Integer.parseInt(kundenId_tf.getText());
 		String vorname = vorname_tf.getText();
 		String nachname = nachname_tf.getText();
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		String gebDat = formatter.format(geburtsdatum_tf.getValue());
 		String adresse = adresse_tf.getText();
 		String telNr = telNr_tf.getText();

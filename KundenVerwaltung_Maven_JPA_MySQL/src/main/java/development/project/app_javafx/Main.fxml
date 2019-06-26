@@ -100,12 +100,12 @@
                            <children>
                               <TableView fx:id="kundenList_TableView" prefHeight="599.0" prefWidth="704.0">
                                 <columns>
-                                  <TableColumn prefWidth="74.0" text="Kunde ID" />
-                                  <TableColumn prefWidth="106.0" text="Vorname" />
-                                    <TableColumn prefWidth="124.0" text="Nachname" />
-                                    <TableColumn prefWidth="114.0" text="Geburtsdatum" />
-                                    <TableColumn prefWidth="227.0" text="Adresse" />
-                                    <TableColumn prefWidth="118.0" text="Tel. Nr." />
+                                  <TableColumn fx:id="idColumn" prefWidth="74.0" text="Kunde ID" />
+                                  <TableColumn fx:id="vornameColumn" prefWidth="106.0" text="Vorname" />
+                                    <TableColumn fx:id="nachnameColumn" prefWidth="124.0" text="Nachname" />
+                                    <TableColumn fx:id="gebDColumn" prefWidth="114.0" text="Geburtsdatum" />
+                                    <TableColumn fx:id="adresseColumn" prefWidth="227.0" text="Adresse" />
+                                    <TableColumn fx:id="telNrColumn" prefWidth="118.0" text="Tel. Nr." />
                                 </columns>
                               </TableView>
                               <HBox prefHeight="95.0" prefWidth="697.0" />
